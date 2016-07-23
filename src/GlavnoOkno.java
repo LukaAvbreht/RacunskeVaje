@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,6 +14,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Font;
+import java.awt.Component;
+import java.awt.Point;
+import javax.swing.SwingConstants;
+import javax.swing.border.MatteBorder;
 
 public class GlavnoOkno extends JFrame {
 
@@ -30,6 +36,9 @@ public class GlavnoOkno extends JFrame {
 	private JLabel labelEnakost;
 	private JLabel Ocena;
 	
+	private Color zelena = new Color(51, 204, 0);
+	private Color rdeca = new Color(204,0,0);
+	
 	private int Defcon = 0;
 	
 	private void oceni(){
@@ -41,13 +50,14 @@ public class GlavnoOkno extends JFrame {
 		}catch(NumberFormatException ex){
 		}
 		if(ok){
-			Ocena.setBackground(Color.green);
-			Ocena.setText("Vse OK");
+			Ocena.setBackground(zelena);
+			Ocena.setText("OK");
 		}else{
-			Ocena.setBackground(Color.red);
-			Ocena.setText("Nic OK");
+			Ocena.setBackground(rdeca);
+			Ocena.setText("XX");
 		}
 	}
+
 	
 	private void pokazi(){
 		trenutni = Racun.dobiNaklucenRacun(10);
@@ -81,14 +91,15 @@ public class GlavnoOkno extends JFrame {
 	public GlavnoOkno() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		Dimension dim = new Dimension(600,300);
+		setMinimumSize(dim);
+		//setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		btnPokaziRacun = new JButton("Pokazi racun");
-		
-
 		
 		contentPane.add(btnPokaziRacun, BorderLayout.NORTH);
 		
@@ -101,22 +112,56 @@ public class GlavnoOkno extends JFrame {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		
 		labelPrvaStevilka = new JLabel("New label");
+		labelPrvaStevilka.setOpaque(true);
+		labelPrvaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
+		labelPrvaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
+		labelPrvaStevilka.setMaximumSize(new Dimension(150, 150));
+		labelPrvaStevilka.setAlignmentX(Component.CENTER_ALIGNMENT);
+		labelPrvaStevilka.setFont(new Font("Tahoma", Font.BOLD, 30));
+		labelPrvaStevilka.setMinimumSize(new Dimension(150, 100));
 		panel.add(labelPrvaStevilka);
 		
 		labelOperacija = new JLabel("New label");
+		labelOperacija.setOpaque(true);
+		labelOperacija.setHorizontalTextPosition(SwingConstants.CENTER);
+		labelOperacija.setHorizontalAlignment(SwingConstants.CENTER);
+		labelOperacija.setMinimumSize(new Dimension(150, 100));
+		labelOperacija.setMaximumSize(new Dimension(150, 150));
+		labelOperacija.setFont(new Font("Tahoma", Font.BOLD, 30));
 		panel.add(labelOperacija);
 		
 		labelDrugaStevilka = new JLabel("New label");
+		labelDrugaStevilka.setOpaque(true);
+		labelDrugaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
+		labelDrugaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
+		labelDrugaStevilka.setMinimumSize(new Dimension(150, 100));
+		labelDrugaStevilka.setMaximumSize(new Dimension(150, 150));
+		labelDrugaStevilka.setFont(new Font("Tahoma", Font.BOLD, 30));
 		panel.add(labelDrugaStevilka);
 		
 		labelEnakost = new JLabel("=");
+		labelEnakost.setFont(new Font("Tempus Sans ITC", Font.BOLD, 30));
+		labelEnakost.setOpaque(true);
+		labelEnakost.setHorizontalTextPosition(SwingConstants.CENTER);
+		labelEnakost.setHorizontalAlignment(SwingConstants.CENTER);
+		labelEnakost.setMinimumSize(new Dimension(150, 100));
+		labelEnakost.setMaximumSize(new Dimension(150, 150));
 		panel.add(labelEnakost);
 		
 		inputRezultat = new JTextField();
+		inputRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
 		panel.add(inputRezultat);
 		inputRezultat.setColumns(10);
 		
 		Ocena = new JLabel("");
+		Ocena.setBackground(new Color(51, 204, 0));
+		Ocena.setFont(new Font("Tahoma", Font.BOLD, 30));
+		Ocena.setOpaque(true);
+		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
+		Ocena.setHorizontalAlignment(SwingConstants.CENTER);
+		Ocena.setMinimumSize(new Dimension(150, 100));
+		Ocena.setMaximumSize(new Dimension(150, 150));
+		
 		panel.add(Ocena);
 		Ocena.setSize(20, 100);
 		
