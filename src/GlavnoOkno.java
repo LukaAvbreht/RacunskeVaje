@@ -41,7 +41,7 @@ public class GlavnoOkno extends JFrame {
 	private int pravilno = 0;
 	
 	private Color zelena = new Color(51, 204, 0);
-	private Color rdeca = new Color(204,0,0);
+	private Color rdeca = new Color(255,17,17);
 	private Color rumena = new Color(255,255,0);
 	private Color bela = new Color(255, 255, 255);
 	
@@ -56,13 +56,15 @@ public class GlavnoOkno extends JFrame {
 		}catch(NumberFormatException ex){
 		}
 		if(ok){
-			Ocena.setBackground(zelena);
+			Ocena.setBackground(bela);
 			Ocena.setText("OK");
+			Ocena.setForeground(zelena);
 			pravilno += 1;
 			Tocke.setText(pravilno + "/" + vsehRacunov);
 		}else{
-			Ocena.setBackground(rdeca);
-			Ocena.setText("XX");
+			Ocena.setBackground(bela);
+			Ocena.setText("X");
+			Ocena.setForeground(rdeca);
 			Tocke.setText(pravilno + "/" + vsehRacunov);
 		}
 	}
@@ -172,7 +174,7 @@ public class GlavnoOkno extends JFrame {
 		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
 		Ocena.setHorizontalAlignment(SwingConstants.CENTER);
 		Ocena.setMinimumSize(new Dimension(150, 100));
-		Ocena.setMaximumSize(new Dimension(80, 80));
+		Ocena.setMaximumSize(new Dimension(80, 50));
 		//Ocena.setPreferredSize(getMaximumSize());
 		
 		panel.add(Ocena);
@@ -185,7 +187,7 @@ public class GlavnoOkno extends JFrame {
 		Tocke.setHorizontalTextPosition(SwingConstants.CENTER);
 		Tocke.setHorizontalAlignment(SwingConstants.CENTER);
 		Tocke.setMinimumSize(new Dimension(150, 100));
-		Tocke.setMaximumSize(new Dimension(80, 80));
+		Tocke.setMaximumSize(new Dimension(150, 50));
 		
 		panel.add(Tocke);
 		Tocke.setSize(20, 100);
