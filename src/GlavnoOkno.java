@@ -27,7 +27,7 @@ public class GlavnoOkno extends JFrame {
 	
 	private Racun trenutni;
 	
-	private JButton btnPokaziRacun;
+	private JButton btnResetiraj;
 	private JButton btnPotrdi;
 
 	private JLabel labelPrvaStevilka;
@@ -110,9 +110,9 @@ public class GlavnoOkno extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		btnPokaziRacun = new JButton("Pokazi racun");
+		btnResetiraj = new JButton("Resetiraj");
 		
-		contentPane.add(btnPokaziRacun, BorderLayout.NORTH);
+		contentPane.add(btnResetiraj, BorderLayout.NORTH);
 		
 		btnPotrdi = new JButton("Potrdi");
 		
@@ -126,7 +126,7 @@ public class GlavnoOkno extends JFrame {
 		labelPrvaStevilka.setOpaque(true);
 		labelPrvaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
 		labelPrvaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
-		labelPrvaStevilka.setMaximumSize(new Dimension(150, 150));
+		labelPrvaStevilka.setMaximumSize(new Dimension(150, 50));
 		labelPrvaStevilka.setAlignmentX(Component.CENTER_ALIGNMENT);
 		labelPrvaStevilka.setFont(new Font("Tahoma", Font.BOLD, 30));
 		labelPrvaStevilka.setMinimumSize(new Dimension(150, 100));
@@ -137,7 +137,7 @@ public class GlavnoOkno extends JFrame {
 		labelOperacija.setHorizontalTextPosition(SwingConstants.CENTER);
 		labelOperacija.setHorizontalAlignment(SwingConstants.CENTER);
 		labelOperacija.setMinimumSize(new Dimension(150, 100));
-		labelOperacija.setMaximumSize(new Dimension(150, 150));
+		labelOperacija.setMaximumSize(new Dimension(150, 50));
 		labelOperacija.setFont(new Font("Tahoma", Font.BOLD, 30));
 		panel.add(labelOperacija);
 		
@@ -146,7 +146,7 @@ public class GlavnoOkno extends JFrame {
 		labelDrugaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
 		labelDrugaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
 		labelDrugaStevilka.setMinimumSize(new Dimension(150, 100));
-		labelDrugaStevilka.setMaximumSize(new Dimension(150, 150));
+		labelDrugaStevilka.setMaximumSize(new Dimension(150, 50));
 		labelDrugaStevilka.setFont(new Font("Tahoma", Font.BOLD, 30));
 		panel.add(labelDrugaStevilka);
 		
@@ -156,11 +156,12 @@ public class GlavnoOkno extends JFrame {
 		labelEnakost.setHorizontalTextPosition(SwingConstants.CENTER);
 		labelEnakost.setHorizontalAlignment(SwingConstants.CENTER);
 		labelEnakost.setMinimumSize(new Dimension(150, 100));
-		labelEnakost.setMaximumSize(new Dimension(150, 150));
+		labelEnakost.setMaximumSize(new Dimension(150, 50));
 		panel.add(labelEnakost);
 		
 		inputRezultat = new JTextField();
 		inputRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
+		inputRezultat.setMaximumSize(new Dimension(150,50));
 		panel.add(inputRezultat);
 		inputRezultat.setColumns(10);
 		
@@ -171,7 +172,8 @@ public class GlavnoOkno extends JFrame {
 		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
 		Ocena.setHorizontalAlignment(SwingConstants.CENTER);
 		Ocena.setMinimumSize(new Dimension(150, 100));
-		Ocena.setMaximumSize(new Dimension(150, 150));
+		Ocena.setMaximumSize(new Dimension(80, 80));
+		//Ocena.setPreferredSize(getMaximumSize());
 		
 		panel.add(Ocena);
 		Ocena.setSize(20, 100);
@@ -183,19 +185,19 @@ public class GlavnoOkno extends JFrame {
 		Tocke.setHorizontalTextPosition(SwingConstants.CENTER);
 		Tocke.setHorizontalAlignment(SwingConstants.CENTER);
 		Tocke.setMinimumSize(new Dimension(150, 100));
-		Tocke.setMaximumSize(new Dimension(150, 150));
+		Tocke.setMaximumSize(new Dimension(80, 80));
 		
 		panel.add(Tocke);
 		Tocke.setSize(20, 100);
 		
 		
-		btnPokaziRacun.addMouseListener(new MouseAdapter() {
+		btnResetiraj.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if (Defcon == 0){
-					pokazi();
-					Defcon = 1;
-				}
+				vsehRacunov = 0;
+				pravilno = 0;
+				Tocke.setText(pravilno + "/" + vsehRacunov);
+				pokazi();
 			}
 		});
 
