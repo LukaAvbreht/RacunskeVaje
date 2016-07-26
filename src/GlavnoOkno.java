@@ -36,10 +36,16 @@ public class GlavnoOkno extends JFrame {
 	private JLabel labelEnakost;
 	private JLabel Ocena;
 	
+	private JLabel Tocke;
+	private int vsehRacunov = 1;
+	private int pravilno = 0;
+	
 	private Color zelena = new Color(51, 204, 0);
 	private Color rdeca = new Color(204,0,0);
+	private Color rumena = new Color(255,255,0);
+	private Color bela = new Color(255, 255, 255);
 	
-	private int Defcon = 0;
+	private int Defcon = 1;
 	
 	private void oceni(){
 		String vpisano = inputRezultat.getText();
@@ -52,9 +58,12 @@ public class GlavnoOkno extends JFrame {
 		if(ok){
 			Ocena.setBackground(zelena);
 			Ocena.setText("OK");
+			pravilno += 1;
+			Tocke.setText(pravilno + "/" + vsehRacunov);
 		}else{
 			Ocena.setBackground(rdeca);
 			Ocena.setText("XX");
+			Tocke.setText(pravilno + "/" + vsehRacunov);
 		}
 	}
 
@@ -64,7 +73,8 @@ public class GlavnoOkno extends JFrame {
 		labelPrvaStevilka.setText(trenutni.prvaStevilka + "");
 		labelDrugaStevilka.setText(trenutni.drugaStevilka + "");
 		labelOperacija.setText(trenutni.operacija.operator);
-		Ocena.setText("");
+		Ocena.setText("__");
+		Ocena.setBackground(bela);
 		inputRezultat.setText("");
 		//inputRezultat.setText(trenutni.rezultat + "");
 	}
@@ -153,7 +163,7 @@ public class GlavnoOkno extends JFrame {
 		panel.add(inputRezultat);
 		inputRezultat.setColumns(10);
 		
-		Ocena = new JLabel("");
+		Ocena = new JLabel("Test");
 		Ocena.setBackground(new Color(51, 204, 0));
 		Ocena.setFont(new Font("Tahoma", Font.BOLD, 30));
 		Ocena.setOpaque(true);
@@ -164,20 +174,38 @@ public class GlavnoOkno extends JFrame {
 		
 		panel.add(Ocena);
 		Ocena.setSize(20, 100);
+	
+		Tocke = new JLabel("0/0");
+		Tocke.setBackground(rumena);
+		Tocke.setFont(new Font("Tahoma", Font.BOLD, 30));
+		Tocke.setOpaque(true);
+		Tocke.setHorizontalTextPosition(SwingConstants.CENTER);
+		Tocke.setHorizontalAlignment(SwingConstants.CENTER);
+		Tocke.setMinimumSize(new Dimension(150, 100));
+		Tocke.setMaximumSize(new Dimension(150, 150));
+		
+		panel.add(Tocke);
+		Tocke.setSize(20, 100);
 		
 		
 		btnPokaziRacun.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				pokazi();
+				if (Defcon == 0){
+					pokazi();
+					Defcon = 1;
+					vsehRacunov += 1;
+				}
 			}
 		});
 
 		btnPotrdi.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0){
-				oceni();
-				Defcon = 1;
+				if (Defcon == 1){
+					oceni();
+					Defcon = 0;
+				}
 			}
 		});
 				
