@@ -37,7 +37,7 @@ public class GlavnoOkno extends JFrame {
 	private JLabel Ocena;
 	
 	private JLabel Tocke;
-	private int vsehRacunov = 1;
+	private int vsehRacunov = 0;
 	private int pravilno = 0;
 	
 	private Color zelena = new Color(51, 204, 0);
@@ -73,8 +73,9 @@ public class GlavnoOkno extends JFrame {
 		labelPrvaStevilka.setText(trenutni.prvaStevilka + "");
 		labelDrugaStevilka.setText(trenutni.drugaStevilka + "");
 		labelOperacija.setText(trenutni.operacija.operator);
-		Ocena.setText("__");
-		Ocena.setBackground(bela);
+		//Ocena.setText("??");
+		//Ocena.setBackground(bela);
+		vsehRacunov += 1;
 		inputRezultat.setText("");
 		//inputRezultat.setText(trenutni.rezultat + "");
 	}
@@ -163,8 +164,8 @@ public class GlavnoOkno extends JFrame {
 		panel.add(inputRezultat);
 		inputRezultat.setColumns(10);
 		
-		Ocena = new JLabel("Test");
-		Ocena.setBackground(new Color(51, 204, 0));
+		Ocena = new JLabel("??");
+		Ocena.setBackground(bela);
 		Ocena.setFont(new Font("Tahoma", Font.BOLD, 30));
 		Ocena.setOpaque(true);
 		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -194,7 +195,6 @@ public class GlavnoOkno extends JFrame {
 				if (Defcon == 0){
 					pokazi();
 					Defcon = 1;
-					vsehRacunov += 1;
 				}
 			}
 		});
@@ -204,7 +204,7 @@ public class GlavnoOkno extends JFrame {
 			public void mouseClicked(MouseEvent arg0){
 				if (Defcon == 1){
 					oceni();
-					Defcon = 0;
+					pokazi();
 				}
 			}
 		});
