@@ -29,6 +29,7 @@ public class GlavnoOkno extends JFrame {
 	
 	private JButton btnPokaziRacun;
 	private JButton btnPotrdi;
+	private JButton btnReset;
 
 	private JLabel labelPrvaStevilka;
 	private JLabel labelOperacija;
@@ -79,6 +80,15 @@ public class GlavnoOkno extends JFrame {
 		inputRezultat.setText("");
 		//inputRezultat.setText(trenutni.rezultat + "");
 	}
+	
+	private void reset(){
+		vsehRacunov = 0;
+		pravilno = 0;
+		Tocke.setText("0/0");
+		Ocena.setText("??");
+		Ocena.setBackground(bela);
+		pokazi();
+	}
 
 	/**
 	 * Launch the application.
@@ -117,6 +127,10 @@ public class GlavnoOkno extends JFrame {
 		btnPotrdi = new JButton("Potrdi");
 		
 		contentPane.add(btnPotrdi, BorderLayout.SOUTH);
+		
+		btnReset = new JButton("Reset");
+		
+		contentPane.add(btnReset, BorderLayout.BEFORE_FIRST_LINE);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -206,6 +220,13 @@ public class GlavnoOkno extends JFrame {
 					oceni();
 					pokazi();
 				}
+			}
+		});
+		
+		btnReset.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+					reset();
 			}
 		});
 				
