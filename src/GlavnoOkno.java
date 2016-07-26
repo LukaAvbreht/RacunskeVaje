@@ -213,9 +213,9 @@ public class GlavnoOkno extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				if(arg0.getKeyCode() == KeyEvent.VK_ENTER){
-					if(Defcon == 0){
+					if(Defcon == 1){
 						oceni();
-						Defcon = 1;
+						pokazi();
 					}
 					else{
 						pokazi();
