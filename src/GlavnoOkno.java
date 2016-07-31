@@ -61,6 +61,7 @@ public class GlavnoOkno extends JFrame {
 			int vpisanInt = Integer.parseInt(vpisano);
 			ok = vpisanInt == trenutni.rezultat;
 		}catch(NumberFormatException ex){
+			vpisano = "FAIL";
 		}
 		if(ok){
 			//Ocena.setBackground(bela);
@@ -81,11 +82,15 @@ public class GlavnoOkno extends JFrame {
 		int b = trenutni.drugaStevilka;
 		int c = trenutni.rezultat;
 		String op = trenutni.operacija.operator;
+		String nasVnos = vpisano;
+		if (vpisano == "FAIL"){
+			nasVnos = " .. ";
+		} 
 		if (trenutni.operacija.stevilo <= 4){
-			labelPrejsniRacun.setText(a + " " +  op + " " + b + " = " + c + "         (" + vpisano + ")");
+			labelPrejsniRacun.setText(a + " " +  op + " " + b + " = " + c + "         (" + nasVnos + ")");
 		}
 		else {
-			labelPrejsniRacun.setText(c + " " + op + " "  + a + " = " + b + "         (" + vpisano + ")");
+			labelPrejsniRacun.setText(c + " " + op + " "  + a + " = " + b + "         (" + nasVnos + ")");
 		}
 	}
 
