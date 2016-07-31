@@ -73,6 +73,19 @@ public class GlavnoOkno extends JFrame {
 			Tocke.setText(pravilno + "/" + vsehRacunov);
 		}
 	}
+	
+	private void zgodovina(){
+		int a = trenutni.prvaStevilka;
+		int b = trenutni.drugaStevilka;
+		int c = trenutni.rezultat;
+		String op = trenutni.operacija.operator;
+		if (trenutni.operacija.stevilo <= 4){
+			labelPrejsniRacun.setText(a + " " +  op + " " + b + " = " + c);
+		}
+		else {
+			labelPrejsniRacun.setText(c + " " + op + " "  + a + " = " + b);
+		}
+	}
 
 	
 	private void pokazi(){
@@ -116,8 +129,10 @@ public class GlavnoOkno extends JFrame {
 	 */
 	public GlavnoOkno() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		Dimension dim = new Dimension(600,300);
+		setTitle("Vaje raèunanja - zahtevnost 10"); //se bo spreminjalo
+		setResizable(false);
+		setBounds(100, 100, 450, 250);
+		Dimension dim = new Dimension(600,250);
 		setMinimumSize(dim);
 		//setResizable(false);
 		contentPane = new JPanel();
@@ -134,19 +149,42 @@ public class GlavnoOkno extends JFrame {
 		gumbi.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 		gumbi.add(Box.createHorizontalGlue());
 		gumbi.add(btnResetiraj);
-		gumbi.add(Box.createRigidArea(new Dimension(10, 0)));
+		gumbi.add(Box.createRigidArea(new Dimension(400, 0)));
 		gumbi.add(btnPotrdi);
 		
 		contentPane.add(gumbi, BorderLayout.SOUTH);
 		
+		labelPrejsniRacun = new JLabel("Prejsni raèun");
+		labelPrejsniRacun.setHorizontalAlignment(SwingConstants.CENTER);
+		labelPrejsniRacun.setHorizontalTextPosition(SwingConstants.CENTER);
+		labelPrejsniRacun.setAlignmentX(Component.CENTER_ALIGNMENT);
+		labelPrejsniRacun.setFont(new Font("Arial", Font.ITALIC, 20));
+		labelPrejsniRacun.setOpaque(true);
+		
+		Ocena = new JLabel("??");
+		Ocena.setBackground(bela);
+		Ocena.setFont(new Font("Tahoma", Font.BOLD, 30));
+		Ocena.setOpaque(true);
+		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
+		Ocena.setHorizontalAlignment(SwingConstants.CENTER);
+		Ocena.setMinimumSize(new Dimension(150, 100));
+		Ocena.setMaximumSize(new Dimension(80, 50));
+		Ocena.setSize(20, 100);
+		
+		JPanel bivsi = new JPanel();
+		bivsi.setLayout(new BoxLayout(bivsi, BoxLayout.LINE_AXIS));
+		bivsi.setBorder(BorderFactory.createEmptyBorder(0, 180, 10, 10));
+		//bivsi.add(Box.createHorizontalGlue());
+		bivsi.add(labelPrejsniRacun);
+		bivsi.add(Box.createRigidArea(new Dimension(80, 0)));
+		bivsi.add(Ocena);
+		
+		contentPane.add(bivsi, BorderLayout.NORTH);
+		
+		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-		
-		//labelPrejsniRacun = new JLabel("Prejsni raèun");
-		//labelPrejsniRacun.setOpaque(true);
-		//labelPrejsniRacun.setHorizontalAlignment(SwingConstants.TOP);
-		//panel.add(labelPrejsniRacun);
 		
 		labelPrvaStevilka = new JLabel("");
 		labelPrvaStevilka.setOpaque(true);
@@ -200,18 +238,18 @@ public class GlavnoOkno extends JFrame {
 		panel.add(inputRezultat);
 		inputRezultat.setColumns(10);
 		
-		Ocena = new JLabel("??");
-		Ocena.setBackground(bela);
-		Ocena.setFont(new Font("Tahoma", Font.BOLD, 30));
-		Ocena.setOpaque(true);
-		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
-		Ocena.setHorizontalAlignment(SwingConstants.CENTER);
-		Ocena.setMinimumSize(new Dimension(150, 100));
-		Ocena.setMaximumSize(new Dimension(80, 50));
+		//Ocena = new JLabel("??");
+		//Ocena.setBackground(bela);
+		//Ocena.setFont(new Font("Tahoma", Font.BOLD, 30));
+		//Ocena.setOpaque(true);
+		//Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
+		//Ocena.setHorizontalAlignment(SwingConstants.CENTER);
+		//Ocena.setMinimumSize(new Dimension(150, 100));
+		//Ocena.setMaximumSize(new Dimension(80, 50));
 		//Ocena.setPreferredSize(getMaximumSize());
 		
-		panel.add(Ocena);
-		Ocena.setSize(20, 100);
+		//panel.add(Ocena);
+		//Ocena.setSize(20, 100);
 	
 		Tocke = new JLabel("0/0");
 		Tocke.setBackground(rumena);
@@ -232,6 +270,7 @@ public class GlavnoOkno extends JFrame {
 				vsehRacunov = 0;
 				pravilno = 0;
 				Tocke.setText(pravilno + "/" + vsehRacunov);
+				labelPrejsniRacun.setText("");
 				pokazi();
 			}
 		});
@@ -241,6 +280,7 @@ public class GlavnoOkno extends JFrame {
 			public void mouseClicked(MouseEvent arg0){
 				if (Defcon == 1){
 					oceni();
+					zgodovina();
 					System.out.println(trenutni);
 					pokazi();
 				}
@@ -251,18 +291,14 @@ public class GlavnoOkno extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				if(arg0.getKeyCode() == KeyEvent.VK_ENTER){
-					if(Defcon == 1){
-						oceni();
-						pokazi();
-					}
-					else{
-						pokazi();
-						Defcon = 0;
-					}
+					oceni();
+					zgodovina();
+					System.out.println(trenutni);
+					pokazi();
 				}
 			}
 		});
-		
+
 		pokazi();
 	}
 }
