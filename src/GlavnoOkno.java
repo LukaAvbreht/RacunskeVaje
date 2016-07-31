@@ -208,6 +208,7 @@ public class GlavnoOkno extends JFrame {
 			public void mouseClicked(MouseEvent arg0){
 				if (Defcon == 1){
 					oceni();
+					System.out.println(trenutni);
 					pokazi();
 				}
 			}

@@ -12,7 +12,10 @@ public class Operacija {
 			this.operator = "-";
 		}else if(stevilo == 3){
 			this.operator = "*";
-		}else{
+		}else if(stevilo == 4){
+			this.operator = "/";
+		}
+		else{
 			assert false;
 			this.operator = "";
 		}
@@ -25,7 +28,10 @@ public class Operacija {
 			return prvaStevilka - drugaStevilka;
 		}else if(this.stevilo == 3){
 			return prvaStevilka * drugaStevilka;
-		}else{
+		}else if(this.stevilo == 4){
+			return prvaStevilka / drugaStevilka;
+		}
+		else{
 			assert false;
 			return 0;
 		}
