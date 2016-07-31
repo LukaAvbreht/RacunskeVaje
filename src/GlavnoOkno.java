@@ -34,6 +34,7 @@ public class GlavnoOkno extends JFrame {
 	private JLabel labelOperacija;
 	private JLabel labelDrugaStevilka;
 	private JLabel labelEnakost;
+	private JLabel labelRezultat;
 	private JLabel Ocena;
 	
 	private JLabel Tocke;
@@ -72,14 +73,22 @@ public class GlavnoOkno extends JFrame {
 	
 	private void pokazi(){
 		trenutni = Racun.dobiNaklucenRacun(10);
-		labelPrvaStevilka.setText(trenutni.prvaStevilka + "");
-		labelDrugaStevilka.setText(trenutni.drugaStevilka + "");
-		labelOperacija.setText(trenutni.operacija.operator);
-		//Ocena.setText("??");
-		//Ocena.setBackground(bela);
-		vsehRacunov += 1;
-		inputRezultat.setText("");
-		//inputRezultat.setText(trenutni.rezultat + "");
+		if (trenutni.operacija.stevilo <= 4){
+			labelPrvaStevilka.setText(trenutni.prvaStevilka + "");
+			labelDrugaStevilka.setText(trenutni.drugaStevilka + "");
+			labelOperacija.setText(trenutni.operacija.operator);
+			vsehRacunov += 1;
+			inputRezultat.setText("");
+			labelRezultat.setText("");
+		}
+		else {
+			labelPrvaStevilka.setText("__");
+			labelOperacija.setText(trenutni.operacija.operator);
+			labelDrugaStevilka.setText(trenutni.prvaStevilka + "");
+			labelRezultat.setText(trenutni.drugaStevilka + "");
+			vsehRacunov += 1;
+			inputRezultat.setText("");
+		}
 	}
 
 	/**
@@ -160,6 +169,15 @@ public class GlavnoOkno extends JFrame {
 		labelEnakost.setMinimumSize(new Dimension(150, 100));
 		labelEnakost.setMaximumSize(new Dimension(150, 50));
 		panel.add(labelEnakost);
+		
+		labelRezultat = new JLabel("");
+		labelRezultat.setOpaque(true);
+		labelRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
+		labelRezultat.setHorizontalTextPosition(SwingConstants.CENTER);
+		labelRezultat.setHorizontalAlignment(SwingConstants.CENTER);
+		labelRezultat.setMinimumSize(new Dimension(150, 100));
+		labelRezultat.setMaximumSize(new Dimension(150, 50));
+		panel.add(labelRezultat);
 		
 		inputRezultat = new JTextField();
 		inputRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));

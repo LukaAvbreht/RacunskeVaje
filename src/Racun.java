@@ -25,7 +25,7 @@ public class Racun {
 	}
 	
 	public static Racun dobiNaklucenRacun(int zah){
-		Operacija operacija = new Operacija(randInt(1,3));
+		Operacija operacija = new Operacija(randInt(1,5));
 		if (operacija.stevilo <= 2){
 			int prva = randInt(0, 10*zah);
 			int druga = randInt(0, 10*zah);
@@ -36,9 +36,14 @@ public class Racun {
 			int druga = randInt(0, 2*zah);
 			return new Racun(prva, druga, operacija);
 		}
+		else if (operacija.stevilo == 4){
+			int prva = randInt(1, 2*zah);
+			int druga = randInt(0,2*zah);
+			return new Racun(prva*druga, prva, operacija);
+		}
 		else {//ne dela
 			int kolicnik = randInt(0,2*zah);
-			int delitelj = randInt(0,10*zah);
+			int delitelj = randInt(1,2*zah);
 			return new Racun(delitelj, kolicnik, operacija);
 		}
 	}

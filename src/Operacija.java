@@ -14,6 +14,8 @@ public class Operacija {
 			this.operator = "*";
 		}else if(stevilo == 4){
 			this.operator = "/";
+		}else if(stevilo == 5){
+			this.operator = "/";
 		}
 		else{
 			assert false;
@@ -30,6 +32,9 @@ public class Operacija {
 			return prvaStevilka * drugaStevilka;
 		}else if(this.stevilo == 4){
 			return prvaStevilka / drugaStevilka;
+		}
+		else if(this.stevilo == 5){
+			return drugaStevilka * prvaStevilka;
 		}
 		else{
 			assert false;
