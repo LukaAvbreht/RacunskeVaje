@@ -49,8 +49,9 @@ public class GlavnoOkno extends JFrame {
 	private Color rdeca = new Color(255,17,17);
 	private Color rumena = new Color(255,255,0);
 	private Color bela = new Color(255, 255, 255);
+	private Color crna = new Color(0, 0, 0);
 	
-	private int Defcon = 1;
+	//private int Defcon = 1;
 	
 	private void oceni(){
 		String vpisano = inputRezultat.getText();
@@ -61,13 +62,13 @@ public class GlavnoOkno extends JFrame {
 		}catch(NumberFormatException ex){
 		}
 		if(ok){
-			Ocena.setBackground(bela);
+			//Ocena.setBackground(bela);
 			Ocena.setText("OK");
 			Ocena.setForeground(zelena);
 			pravilno += 1;
 			Tocke.setText(pravilno + "/" + vsehRacunov);
 		}else{
-			Ocena.setBackground(bela);
+			//Ocena.setBackground(bela);
 			Ocena.setText("X");
 			Ocena.setForeground(rdeca);
 			Tocke.setText(pravilno + "/" + vsehRacunov);
@@ -144,12 +145,23 @@ public class GlavnoOkno extends JFrame {
 		
 		btnPotrdi = new JButton("Potrdi");
 		
+		Tocke = new JLabel("0/0");
+		Tocke.setBackground(rumena);
+		Tocke.setFont(new Font("Tahoma", Font.BOLD, 30));
+		Tocke.setOpaque(true);
+		Tocke.setHorizontalTextPosition(SwingConstants.CENTER);
+		Tocke.setHorizontalAlignment(SwingConstants.CENTER);
+		Tocke.setMinimumSize(new Dimension(150, 100));
+		Tocke.setMaximumSize(new Dimension(150, 50));
+		
 		JPanel gumbi = new JPanel();
 		gumbi.setLayout(new BoxLayout(gumbi, BoxLayout.LINE_AXIS));
 		gumbi.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 		gumbi.add(Box.createHorizontalGlue());
+		gumbi.add(Tocke);
+		gumbi.add(Box.createRigidArea(new Dimension(160, 0)));
 		gumbi.add(btnResetiraj);
-		gumbi.add(Box.createRigidArea(new Dimension(400, 0)));
+		gumbi.add(Box.createRigidArea(new Dimension(10, 0)));
 		gumbi.add(btnPotrdi);
 		
 		contentPane.add(gumbi, BorderLayout.SOUTH);
@@ -162,14 +174,14 @@ public class GlavnoOkno extends JFrame {
 		labelPrejsniRacun.setOpaque(true);
 		
 		Ocena = new JLabel("??");
-		Ocena.setBackground(bela);
+		//Ocena.setBackground(bela);
 		Ocena.setFont(new Font("Tahoma", Font.BOLD, 30));
 		Ocena.setOpaque(true);
 		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
 		Ocena.setHorizontalAlignment(SwingConstants.CENTER);
-		Ocena.setMinimumSize(new Dimension(150, 100));
-		Ocena.setMaximumSize(new Dimension(80, 50));
-		Ocena.setSize(20, 100);
+		//Ocena.setMinimumSize(new Dimension(200, 100));
+		//Ocena.setMaximumSize(new Dimension(80, 50));
+		//Ocena.setSize(200, 100);
 		
 		JPanel bivsi = new JPanel();
 		bivsi.setLayout(new BoxLayout(bivsi, BoxLayout.LINE_AXIS));
@@ -238,39 +250,15 @@ public class GlavnoOkno extends JFrame {
 		panel.add(inputRezultat);
 		inputRezultat.setColumns(10);
 		
-		//Ocena = new JLabel("??");
-		//Ocena.setBackground(bela);
-		//Ocena.setFont(new Font("Tahoma", Font.BOLD, 30));
-		//Ocena.setOpaque(true);
-		//Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
-		//Ocena.setHorizontalAlignment(SwingConstants.CENTER);
-		//Ocena.setMinimumSize(new Dimension(150, 100));
-		//Ocena.setMaximumSize(new Dimension(80, 50));
-		//Ocena.setPreferredSize(getMaximumSize());
-		
-		//panel.add(Ocena);
-		//Ocena.setSize(20, 100);
-	
-		Tocke = new JLabel("0/0");
-		Tocke.setBackground(rumena);
-		Tocke.setFont(new Font("Tahoma", Font.BOLD, 30));
-		Tocke.setOpaque(true);
-		Tocke.setHorizontalTextPosition(SwingConstants.CENTER);
-		Tocke.setHorizontalAlignment(SwingConstants.CENTER);
-		Tocke.setMinimumSize(new Dimension(150, 100));
-		Tocke.setMaximumSize(new Dimension(150, 50));
-		
-		panel.add(Tocke);
-		Tocke.setSize(20, 100);
-		
-		
 		btnResetiraj.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				vsehRacunov = 0;
 				pravilno = 0;
 				Tocke.setText(pravilno + "/" + vsehRacunov);
-				labelPrejsniRacun.setText("");
+				labelPrejsniRacun.setText("Prejšni raèun");
+				Ocena.setText("??");
+				Ocena.setForeground(crna);
 				pokazi();
 			}
 		});
@@ -278,12 +266,10 @@ public class GlavnoOkno extends JFrame {
 		btnPotrdi.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0){
-				if (Defcon == 1){
-					oceni();
-					zgodovina();
-					System.out.println(trenutni);
-					pokazi();
-				}
+				oceni();
+				zgodovina();
+				System.out.println(trenutni);
+				pokazi();
 			}
 		});
 				
