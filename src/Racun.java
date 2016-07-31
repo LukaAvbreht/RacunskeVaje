@@ -41,7 +41,7 @@ public class Racun {
 			int druga = randInt(0,2*zah);
 			return new Racun(prva*druga, prva, operacija);
 		}
-		else {//ne dela
+		else {
 			int kolicnik = randInt(0,2*zah);
 			int delitelj = randInt(1,2*zah);
 			return new Racun(delitelj, kolicnik, operacija);

@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
@@ -36,6 +38,8 @@ public class GlavnoOkno extends JFrame {
 	private JLabel labelEnakost;
 	private JLabel labelRezultat;
 	private JLabel Ocena;
+	
+	private JLabel labelPrejsniRacun;
 	
 	private JLabel Tocke;
 	private int vsehRacunov = 0;
@@ -118,22 +122,33 @@ public class GlavnoOkno extends JFrame {
 		//setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(new BorderLayout(1, 1));
 		setContentPane(contentPane);
 		
 		btnResetiraj = new JButton("Resetiraj");
 		
-		contentPane.add(btnResetiraj, BorderLayout.NORTH);
-		
 		btnPotrdi = new JButton("Potrdi");
 		
-		contentPane.add(btnPotrdi, BorderLayout.SOUTH);
+		JPanel gumbi = new JPanel();
+		gumbi.setLayout(new BoxLayout(gumbi, BoxLayout.LINE_AXIS));
+		gumbi.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
+		gumbi.add(Box.createHorizontalGlue());
+		gumbi.add(btnResetiraj);
+		gumbi.add(Box.createRigidArea(new Dimension(10, 0)));
+		gumbi.add(btnPotrdi);
+		
+		contentPane.add(gumbi, BorderLayout.SOUTH);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		
-		labelPrvaStevilka = new JLabel("New label");
+		//labelPrejsniRacun = new JLabel("Prejsni raèun");
+		//labelPrejsniRacun.setOpaque(true);
+		//labelPrejsniRacun.setHorizontalAlignment(SwingConstants.TOP);
+		//panel.add(labelPrejsniRacun);
+		
+		labelPrvaStevilka = new JLabel("");
 		labelPrvaStevilka.setOpaque(true);
 		labelPrvaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
 		labelPrvaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
@@ -143,7 +158,7 @@ public class GlavnoOkno extends JFrame {
 		labelPrvaStevilka.setMinimumSize(new Dimension(150, 100));
 		panel.add(labelPrvaStevilka);
 		
-		labelOperacija = new JLabel("New label");
+		labelOperacija = new JLabel("");
 		labelOperacija.setOpaque(true);
 		labelOperacija.setHorizontalTextPosition(SwingConstants.CENTER);
 		labelOperacija.setHorizontalAlignment(SwingConstants.CENTER);
@@ -152,7 +167,7 @@ public class GlavnoOkno extends JFrame {
 		labelOperacija.setFont(new Font("Tahoma", Font.BOLD, 30));
 		panel.add(labelOperacija);
 		
-		labelDrugaStevilka = new JLabel("New label");
+		labelDrugaStevilka = new JLabel("");
 		labelDrugaStevilka.setOpaque(true);
 		labelDrugaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
 		labelDrugaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
