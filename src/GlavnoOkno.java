@@ -28,6 +28,7 @@ public class GlavnoOkno extends JFrame {
 	private JTextField inputRezultat;
 	
 	private Racun trenutni;
+	private String vpisano;
 	
 	private JButton btnResetiraj;
 	private JButton btnPotrdi;
@@ -54,7 +55,7 @@ public class GlavnoOkno extends JFrame {
 	//private int Defcon = 1;
 	
 	private void oceni(){
-		String vpisano = inputRezultat.getText();
+		vpisano = inputRezultat.getText();
 		boolean ok = false;
 		try{
 			int vpisanInt = Integer.parseInt(vpisano);
@@ -81,10 +82,10 @@ public class GlavnoOkno extends JFrame {
 		int c = trenutni.rezultat;
 		String op = trenutni.operacija.operator;
 		if (trenutni.operacija.stevilo <= 4){
-			labelPrejsniRacun.setText(a + " " +  op + " " + b + " = " + c);
+			labelPrejsniRacun.setText(a + " " +  op + " " + b + " = " + c + "         (" + vpisano + ")");
 		}
 		else {
-			labelPrejsniRacun.setText(c + " " + op + " "  + a + " = " + b);
+			labelPrejsniRacun.setText(c + " " + op + " "  + a + " = " + b + "         (" + vpisano + ")");
 		}
 	}
 
@@ -188,7 +189,7 @@ public class GlavnoOkno extends JFrame {
 		bivsi.setBorder(BorderFactory.createEmptyBorder(0, 180, 10, 10));
 		//bivsi.add(Box.createHorizontalGlue());
 		bivsi.add(labelPrejsniRacun);
-		bivsi.add(Box.createRigidArea(new Dimension(80, 0)));
+		bivsi.add(Box.createRigidArea(new Dimension(60, 0)));
 		bivsi.add(Ocena);
 		
 		contentPane.add(bivsi, BorderLayout.NORTH);
