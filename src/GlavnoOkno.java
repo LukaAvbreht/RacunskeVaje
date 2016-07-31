@@ -163,9 +163,8 @@ public class GlavnoOkno extends JFrame {
 		JPanel gumbi = new JPanel();
 		gumbi.setLayout(new BoxLayout(gumbi, BoxLayout.LINE_AXIS));
 		gumbi.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-		gumbi.add(Box.createHorizontalGlue());
 		gumbi.add(Tocke);
-		gumbi.add(Box.createRigidArea(new Dimension(160, 0)));
+		gumbi.add(Box.createHorizontalGlue());
 		gumbi.add(btnResetiraj);
 		gumbi.add(Box.createRigidArea(new Dimension(10, 0)));
 		gumbi.add(btnPotrdi);
@@ -185,6 +184,7 @@ public class GlavnoOkno extends JFrame {
 		Ocena.setOpaque(true);
 		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
 		Ocena.setHorizontalAlignment(SwingConstants.CENTER);
+		Ocena.setAlignmentX(Component.CENTER_ALIGNMENT);
 		//Ocena.setMinimumSize(new Dimension(200, 100));
 		//Ocena.setMaximumSize(new Dimension(80, 50));
 		//Ocena.setSize(200, 100);
@@ -196,6 +196,7 @@ public class GlavnoOkno extends JFrame {
 		bivsi.add(labelPrejsniRacun);
 		bivsi.add(Box.createRigidArea(new Dimension(60, 0)));
 		bivsi.add(Ocena);
+		bivsi.add(Box.createHorizontalGlue());
 		
 		contentPane.add(bivsi, BorderLayout.NORTH);
 		
