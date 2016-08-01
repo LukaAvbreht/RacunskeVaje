@@ -27,7 +27,7 @@ public class GlavnoOkno extends JFrame {
 	private JPanel contentPane;
 	private JTextField inputRezultat;
 	
-	private Racun trenutni;
+	public Racun trenutni;
 	private String vpisano;
 	
 	private JButton btnResetiraj;
@@ -76,25 +76,12 @@ public class GlavnoOkno extends JFrame {
 	}
 	
 	private void zgodovina(){
-		int a = trenutni.prvaStevilka;
-		int b = trenutni.drugaStevilka;
-		int c = trenutni.rezultat;
-		String op = trenutni.operacija.operator;
-		String nasVnos = vpisano;
-		if (vpisano == "FAIL"){
-			nasVnos = " .. ";
-		} 
-		if (trenutni.operacija.stevilo <= 4){
-			labelPrejsniRacun.setText(a + " " +  op + " " + b + " = " + c + "         (" + nasVnos + ")");
-		}
-		else {
-			labelPrejsniRacun.setText(c + " " + op + " "  + a + " = " + b + "         (" + nasVnos + ")");
-		}
+		labelPrejsniRacun.setText(trenutni.vStringu);
 	}
 
 	
 	private void pokazi(){
-		trenutni = Racun.dobiNaklucenRacun(10);
+		trenutni = new Racun();
 		//if (trenutni.operacija.stevilo <= 4){
 			//labelPrvaStevilka.setText(trenutni.prvaStevilka + "");
 			//labelDrugaStevilka.setText(trenutni.drugaStevilka + "");
@@ -276,7 +263,7 @@ public class GlavnoOkno extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0){
 				oceni();
-				zgodovina();
+				//zgodovina();
 				System.out.println(trenutni);
 				pokazi();
 			}
@@ -287,7 +274,7 @@ public class GlavnoOkno extends JFrame {
 			public void keyPressed(KeyEvent arg0) {
 				if(arg0.getKeyCode() == KeyEvent.VK_ENTER){
 					oceni();
-					zgodovina();
+					//zgodovina();
 					System.out.println(trenutni);
 					pokazi();
 				}
