@@ -33,11 +33,11 @@ public class GlavnoOkno extends JFrame {
 	private JButton btnResetiraj;
 	private JButton btnPotrdi;
 
-	private JLabel labelPrvaStevilka;
-	private JLabel labelOperacija;
-	private JLabel labelDrugaStevilka;
-	private JLabel labelEnakost;
-	private JLabel labelRezultat;
+	private JLabel labelRacun;
+	//private JLabel labelOperacija;
+	//private JLabel labelDrugaStevilka;
+	//private JLabel labelEnakost;
+	//private JLabel labelRezultat;
 	private JLabel Ocena;
 	
 	private JLabel labelPrejsniRacun;
@@ -51,8 +51,6 @@ public class GlavnoOkno extends JFrame {
 	private Color rumena = new Color(255,255,0);
 	private Color bela = new Color(255, 255, 255);
 	private Color crna = new Color(0, 0, 0);
-	
-	//private int Defcon = 1;
 	
 	private void oceni(){
 		vpisano = inputRezultat.getText();
@@ -97,22 +95,25 @@ public class GlavnoOkno extends JFrame {
 	
 	private void pokazi(){
 		trenutni = Racun.dobiNaklucenRacun(10);
-		if (trenutni.operacija.stevilo <= 4){
-			labelPrvaStevilka.setText(trenutni.prvaStevilka + "");
-			labelDrugaStevilka.setText(trenutni.drugaStevilka + "");
-			labelOperacija.setText(trenutni.operacija.operator);
-			vsehRacunov += 1;
-			inputRezultat.setText("");
-			labelRezultat.setText("");
-		}
-		else {
-			labelPrvaStevilka.setText("__");
-			labelOperacija.setText(trenutni.operacija.operator);
-			labelDrugaStevilka.setText(trenutni.prvaStevilka + "");
-			labelRezultat.setText(trenutni.drugaStevilka + "");
-			vsehRacunov += 1;
-			inputRezultat.setText("");
-		}
+		//if (trenutni.operacija.stevilo <= 4){
+			//labelPrvaStevilka.setText(trenutni.prvaStevilka + "");
+			//labelDrugaStevilka.setText(trenutni.drugaStevilka + "");
+			//labelOperacija.setText(trenutni.operacija.operator);
+			//vsehRacunov += 1;
+			//inputRezultat.setText("");
+			//labelRezultat.setText("");
+		//}
+		//else {
+			//labelPrvaStevilka.setText("__");
+			//labelOperacija.setText(trenutni.operacija.operator);
+			//labelDrugaStevilka.setText(trenutni.prvaStevilka + "");
+			//labelRezultat.setText(trenutni.drugaStevilka + "");
+			//vsehRacunov += 1;
+			//inputRezultat.setText("");
+		//}
+		labelRacun.setText(trenutni.vStringu);
+		vsehRacunov += 1;
+		inputRezultat.setText("");
 	}
 
 	/**
@@ -203,53 +204,54 @@ public class GlavnoOkno extends JFrame {
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+		panel.setLayout(new BoxLayout(panel, BoxLayout.LINE_AXIS));
 		
-		labelPrvaStevilka = new JLabel("");
-		labelPrvaStevilka.setOpaque(true);
-		labelPrvaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
-		labelPrvaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
-		labelPrvaStevilka.setMaximumSize(new Dimension(150, 50));
-		labelPrvaStevilka.setAlignmentX(Component.CENTER_ALIGNMENT);
-		labelPrvaStevilka.setFont(new Font("Tahoma", Font.BOLD, 30));
-		labelPrvaStevilka.setMinimumSize(new Dimension(150, 100));
-		panel.add(labelPrvaStevilka);
+		labelRacun = new JLabel("");
+		labelRacun.setOpaque(true);
+		labelRacun.setHorizontalTextPosition(SwingConstants.CENTER);
+		labelRacun.setHorizontalAlignment(SwingConstants.CENTER);
+		//labelRacun.setMaximumSize(new Dimension(150, 50));
+		labelRacun.setAlignmentX(Component.CENTER_ALIGNMENT);
+		labelRacun.setFont(new Font("Tahoma", Font.BOLD, 30));
+		//labelRacun.setMinimumSize(new Dimension(150, 100));
+		panel.add(labelRacun);
+		panel.add(Box.createHorizontalGlue());
 		
-		labelOperacija = new JLabel("");
-		labelOperacija.setOpaque(true);
-		labelOperacija.setHorizontalTextPosition(SwingConstants.CENTER);
-		labelOperacija.setHorizontalAlignment(SwingConstants.CENTER);
-		labelOperacija.setMinimumSize(new Dimension(150, 100));
-		labelOperacija.setMaximumSize(new Dimension(150, 50));
-		labelOperacija.setFont(new Font("Tahoma", Font.BOLD, 30));
-		panel.add(labelOperacija);
+		//labelOperacija = new JLabel("");
+		//labelOperacija.setOpaque(true);
+		//labelOperacija.setHorizontalTextPosition(SwingConstants.CENTER);
+		//labelOperacija.setHorizontalAlignment(SwingConstants.CENTER);
+		//labelOperacija.setMinimumSize(new Dimension(150, 100));
+		//labelOperacija.setMaximumSize(new Dimension(150, 50));
+		//labelOperacija.setFont(new Font("Tahoma", Font.BOLD, 30));
+		//panel.add(labelOperacija);
 		
-		labelDrugaStevilka = new JLabel("");
-		labelDrugaStevilka.setOpaque(true);
-		labelDrugaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
-		labelDrugaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
-		labelDrugaStevilka.setMinimumSize(new Dimension(150, 100));
-		labelDrugaStevilka.setMaximumSize(new Dimension(150, 50));
-		labelDrugaStevilka.setFont(new Font("Tahoma", Font.BOLD, 30));
-		panel.add(labelDrugaStevilka);
+		//labelDrugaStevilka = new JLabel("");
+		//labelDrugaStevilka.setOpaque(true);
+		//labelDrugaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
+		//labelDrugaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
+		//labelDrugaStevilka.setMinimumSize(new Dimension(150, 100));
+		//labelDrugaStevilka.setMaximumSize(new Dimension(150, 50));
+		//labelDrugaStevilka.setFont(new Font("Tahoma", Font.BOLD, 30));
+		//panel.add(labelDrugaStevilka);
 		
-		labelEnakost = new JLabel("=");
-		labelEnakost.setFont(new Font("Tempus Sans ITC", Font.BOLD, 30));
-		labelEnakost.setOpaque(true);
-		labelEnakost.setHorizontalTextPosition(SwingConstants.CENTER);
-		labelEnakost.setHorizontalAlignment(SwingConstants.CENTER);
-		labelEnakost.setMinimumSize(new Dimension(150, 100));
-		labelEnakost.setMaximumSize(new Dimension(150, 50));
-		panel.add(labelEnakost);
+		//labelEnakost = new JLabel("=");
+		//labelEnakost.setFont(new Font("Tempus Sans ITC", Font.BOLD, 30));
+		//labelEnakost.setOpaque(true);
+		//labelEnakost.setHorizontalTextPosition(SwingConstants.CENTER);
+		//labelEnakost.setHorizontalAlignment(SwingConstants.CENTER);
+		//labelEnakost.setMinimumSize(new Dimension(150, 100));
+		//labelEnakost.setMaximumSize(new Dimension(150, 50));
+		//panel.add(labelEnakost);
 		
-		labelRezultat = new JLabel("");
-		labelRezultat.setOpaque(true);
-		labelRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
-		labelRezultat.setHorizontalTextPosition(SwingConstants.CENTER);
-		labelRezultat.setHorizontalAlignment(SwingConstants.CENTER);
-		labelRezultat.setMinimumSize(new Dimension(150, 100));
-		labelRezultat.setMaximumSize(new Dimension(150, 50));
-		panel.add(labelRezultat);
+		//labelRezultat = new JLabel("");
+		//labelRezultat.setOpaque(true);
+		//labelRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
+		//labelRezultat.setHorizontalTextPosition(SwingConstants.CENTER);
+		//labelRezultat.setHorizontalAlignment(SwingConstants.CENTER);
+		//labelRezultat.setMinimumSize(new Dimension(150, 100));
+		//labelRezultat.setMaximumSize(new Dimension(150, 50));
+		//panel.add(labelRezultat);
 		
 		inputRezultat = new JTextField();
 		inputRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
