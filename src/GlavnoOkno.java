@@ -84,22 +84,6 @@ public class GlavnoOkno extends JFrame {
 	
 	private void pokazi(){
 		trenutni = new Racun();
-		//if (trenutni.operacija.stevilo <= 4){
-			//labelPrvaStevilka.setText(trenutni.prvaStevilka + "");
-			//labelDrugaStevilka.setText(trenutni.drugaStevilka + "");
-			//labelOperacija.setText(trenutni.operacija.operator);
-			//vsehRacunov += 1;
-			//inputRezultat.setText("");
-			//labelRezultat.setText("");
-		//}
-		//else {
-			//labelPrvaStevilka.setText("__");
-			//labelOperacija.setText(trenutni.operacija.operator);
-			//labelDrugaStevilka.setText(trenutni.prvaStevilka + "");
-			//labelRezultat.setText(trenutni.drugaStevilka + "");
-			//vsehRacunov += 1;
-			//inputRezultat.setText("");
-		//}
 		labelRacun.setText(trenutni.vStringu);
 		vsehRacunov += 1;
 		inputRezultat.setText("");
@@ -108,18 +92,18 @@ public class GlavnoOkno extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GlavnoOkno frame = new GlavnoOkno();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	//public static void main(String[] args) {
+	//	EventQueue.invokeLater(new Runnable() {
+	//		public void run() {
+	//			try {
+	//				GlavnoOkno frame = new GlavnoOkno();
+	//				frame.setVisible(true);
+	//			} catch (Exception e) {
+	//				e.printStackTrace();
+	//			}
+	//		}
+	//	});
+	//}
 
 	/**
 	 * Create the frame.
@@ -131,7 +115,6 @@ public class GlavnoOkno extends JFrame {
 		setBounds(100, 100, 450, 250);
 		Dimension dim = new Dimension(600,250);
 		setMinimumSize(dim);
-		//setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(1, 1));
@@ -161,7 +144,7 @@ public class GlavnoOkno extends JFrame {
 		
 		contentPane.add(gumbi, BorderLayout.SOUTH);
 		
-		labelPrejsniRacun = new JLabel("Prejsni raèun");
+		labelPrejsniRacun = new JLabel("Prejšni raèun");
 		labelPrejsniRacun.setHorizontalAlignment(SwingConstants.CENTER);
 		labelPrejsniRacun.setHorizontalTextPosition(SwingConstants.CENTER);
 		labelPrejsniRacun.setAlignmentX(Component.CENTER_ALIGNMENT);
