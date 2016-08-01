@@ -6,6 +6,7 @@ public class Racun {
 	final int drugaStevilka;
 	final int rezultat;
 	String vStringu;
+	String zgodovina;
 	
 	public Racun(){
 		int zah = 10;
@@ -15,30 +16,35 @@ public class Racun {
 			drugaStevilka = randInt(0, 10*zah);
 			vStringu = prvaStevilka + " + " + drugaStevilka + " = ";
 			rezultat = prvaStevilka + drugaStevilka;
+			zgodovina = vStringu + rezultat;
 		}
 		else if (tip == 2){
 			prvaStevilka = randInt(0, 10*zah);
 			drugaStevilka = randInt(0, 10*zah);
 			vStringu = prvaStevilka + " - " + drugaStevilka + " = ";
 			rezultat = prvaStevilka - drugaStevilka;
+			zgodovina = vStringu + rezultat;
 		}
 		else if (tip == 3){
 			prvaStevilka = randInt(0, 2*zah);
 			drugaStevilka = randInt(0, 2*zah);
 			vStringu = prvaStevilka + " * " + drugaStevilka + " = ";
 			rezultat = prvaStevilka * drugaStevilka;
+			zgodovina = vStringu + rezultat;
 		}
 		else if (tip == 4){
 			prvaStevilka = randInt(1, 2*zah);
 			drugaStevilka = randInt(0,2*zah);
 			vStringu = prvaStevilka*drugaStevilka + " / " + prvaStevilka + " = ";
 			rezultat = drugaStevilka;
+			zgodovina = vStringu + rezultat;
 		}
 		else {
 			drugaStevilka = randInt(0,2*zah);
 			prvaStevilka = randInt(1,2*zah);
 			vStringu = "__ / " + prvaStevilka + " = " + drugaStevilka + " ";
 			rezultat = prvaStevilka*drugaStevilka;
+			zgodovina = rezultat + " / " + prvaStevilka + " = " + drugaStevilka + " ";
 		}
 		//this.prvaStevilka = prvaStevilka;
 		//this.drugaStevilka = drugaStevilka;

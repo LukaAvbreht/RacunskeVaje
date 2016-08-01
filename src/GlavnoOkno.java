@@ -76,7 +76,9 @@ public class GlavnoOkno extends JFrame {
 	}
 	
 	private void zgodovina(){
-		labelPrejsniRacun.setText(trenutni.vStringu);
+		String vpisi;
+		vpisi = trenutni.zgodovina + "     (" + vpisano + ")";
+		labelPrejsniRacun.setText(vpisi);
 	}
 
 	
@@ -263,7 +265,7 @@ public class GlavnoOkno extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0){
 				oceni();
-				//zgodovina();
+				zgodovina();
 				System.out.println(trenutni);
 				pokazi();
 			}
@@ -274,7 +276,7 @@ public class GlavnoOkno extends JFrame {
 			public void keyPressed(KeyEvent arg0) {
 				if(arg0.getKeyCode() == KeyEvent.VK_ENTER){
 					oceni();
-					//zgodovina();
+					zgodovina();
 					System.out.println(trenutni);
 					pokazi();
 				}
