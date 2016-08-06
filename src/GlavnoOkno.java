@@ -77,12 +77,12 @@ public class GlavnoOkno extends JFrame {
 				Ocena.setText("OK");
 				Ocena.setForeground(zelena);
 				pravilno += 1;
-				Tocke.setText(pravilno + "/" + vsehRacunov);
+				Tocke.setText(pravilno + "/" + steviloRacunov);
 				inputRezultat.setBackground(svetloZelena);
 			}else{
 				Ocena.setText("X");
 				Ocena.setForeground(rdeca);
-				Tocke.setText(pravilno + "/" + vsehRacunov);
+				Tocke.setText(pravilno + "/" + steviloRacunov);
 				inputRezultat.setBackground(svetloRdeca);
 			}
 			if (vsehRacunov == steviloRacunov){
@@ -146,7 +146,7 @@ public class GlavnoOkno extends JFrame {
 		
 		btnPotrdi = new JButton("Potrdi");
 		
-		Tocke = new JLabel("0/0");
+		Tocke = new JLabel("0/" + steviloRacunov+"");
 		Tocke.setBackground(rumena);
 		Tocke.setFont(new Font("Tahoma", Font.BOLD, 30));
 		Tocke.setOpaque(true);
@@ -255,7 +255,7 @@ public class GlavnoOkno extends JFrame {
 		panel.add(inputRezultat);
 		inputRezultat.setColumns(10);
 		
-		btnResetiraj.addMouseListener(new MouseAdapter() {
+		btnResetiraj.addMouseListener(new MouseAdapter() {   // ta bi mogu odpret ponovno osnovno okno
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				
@@ -264,7 +264,7 @@ public class GlavnoOkno extends JFrame {
 				defcon = 0;
 				vsehRacunov = 0;
 				pravilno = 0;
-				Tocke.setText(pravilno + "/" + vsehRacunov);
+				Tocke.setText(pravilno + "/" + steviloRacunov);
 				labelPrejsniRacun.setText("Prejšni raèun");
 				Ocena.setText("??");
 				Ocena.setForeground(crna);
