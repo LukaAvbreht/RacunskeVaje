@@ -56,8 +56,8 @@ public class ZacetnoOkno extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Vaje raèunanja!"); //se bo spreminjalo
 		setResizable(false);
-		setBounds(100, 100, 450, 250);
-		Dimension dim = new Dimension(600,250);
+		setBounds(100, 100, 200, 200);
+		Dimension dim = new Dimension(200,250);
 		setMinimumSize(dim);
 		platno = new JPanel();
 		platno.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,16 +66,32 @@ public class ZacetnoOkno extends JFrame{
 		
 		btnZacni = new JButton("Start");
 		
-		JPanel spodnjaVrstica = new JPanel();
-		spodnjaVrstica.setLayout(new BoxLayout(spodnjaVrstica, BoxLayout.LINE_AXIS));
-		spodnjaVrstica.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-		spodnjaVrstica.add(btnZacni);
+		navodila_1 = new JLabel();
+		navodila_1.setText("Izberi težavnost: (1 - 20)");
 		
-		platno.add(spodnjaVrstica, BorderLayout.PAGE_END);
+		navodila_2 = new JLabel();
+		navodila_2.setText("Izberi število raèunov: ");
+		
+		vpisiTezavnost = new JTextField();
+		vpisiStRacunov = new JTextField();
+		
+		platno.add(navodila_1);
+		platno.add(vpisiTezavnost);
+		platno.add(navodila_2);
+		platno.add(vpisiStRacunov);
+		platno.add(btnZacni);
 		
 		btnZacni.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				String vpis_1 = vpisiTezavnost.getText();
+				try {
+					tezavnost = Integer.parseInt(vpis_1);
+				} catch (NumberFormatException e){}
+				String vpis_2 = vpisiStRacunov.getText();
+				try {
+					stRacunov = Integer.parseInt(vpis_2);
+				} catch (NumberFormatException e){}
 				vaje = new GlavnoOkno(tezavnost, stRacunov);
 				vaje.setVisible(true);
 			}

@@ -48,7 +48,7 @@ public class GlavnoOkno extends JFrame {
 	
 	private boolean nisemOcenil = true;
 	
-	private int zahtevnost;
+	private int zahtevnost = 10;
 	private int steviloRacunov = 10;
 	
 	private int defcon = 0;
@@ -58,6 +58,9 @@ public class GlavnoOkno extends JFrame {
 	private Color rumena = new Color(255,255,0);
 	private Color bela = new Color(255, 255, 255);
 	private Color crna = new Color(0, 0, 0);
+	private Color svetloZelena = new Color(230,255,230);
+	private Color svetloRdeca = new Color(255,230,230);
+	private Color temnoSiva = new Color(128,128,128);
 	
 	private void oceni(){
 		if (nisemOcenil){
@@ -76,11 +79,13 @@ public class GlavnoOkno extends JFrame {
 				Ocena.setForeground(zelena);
 				pravilno += 1;
 				Tocke.setText(pravilno + "/" + vsehRacunov);
+				inputRezultat.setBackground(svetloZelena);
 			}else{
 				//Ocena.setBackground(bela);
 				Ocena.setText("X");
 				Ocena.setForeground(rdeca);
 				Tocke.setText(pravilno + "/" + vsehRacunov);
+				inputRezultat.setBackground(svetloRdeca);
 			}
 		}
 	}
@@ -93,14 +98,14 @@ public class GlavnoOkno extends JFrame {
 
 	
 	private void pokazi(){
-		trenutni = new Racun();
+		trenutni = new Racun(zahtevnost);
 		labelRacun.setText(trenutni.vStringu);
 		nisemOcenil = true;
 		vsehRacunov += 1;
 		if (vsehRacunov == steviloRacunov){
 			defcon = 1;
 			inputRezultat.disable();
-			inputRezultat.setBackground(new Color(255,230,230));
+			inputRezultat.setBackground(temnoSiva);
 		}
 		inputRezultat.setText("");
 	}
@@ -247,7 +252,7 @@ public class GlavnoOkno extends JFrame {
 		inputRezultat = new JTextField();
 		inputRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
 		inputRezultat.setMaximumSize(new Dimension(150,50));
-		inputRezultat.setBackground(new Color(204,255,204));
+		inputRezultat.setBackground(bela);
 		panel.add(inputRezultat);
 		inputRezultat.setColumns(10);
 		
@@ -256,7 +261,7 @@ public class GlavnoOkno extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				
 				inputRezultat.enable();
-				inputRezultat.setBackground(new Color(204,255,204));
+				inputRezultat.setBackground(bela);
 				defcon = 0;
 				vsehRacunov = 0;
 				pravilno = 0;

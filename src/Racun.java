@@ -8,8 +8,7 @@ public class Racun {
 	String vStringu;
 	String zgodovina;
 	
-	public Racun(){
-		int zah = 10;
+	public Racun(int zah){
 		tip = randInt(1,5);
 		if (tip == 1){
 			prvaStevilka = randInt(0, 10*zah);
