@@ -46,6 +46,8 @@ public class GlavnoOkno extends JFrame {
 	private int vsehRacunov = 0;
 	private int pravilno = 0;
 	
+	private boolean nisemOcenil = true;
+	
 	private int zahtevnost;
 	private int steviloRacunov = 10;
 	
@@ -58,25 +60,28 @@ public class GlavnoOkno extends JFrame {
 	private Color crna = new Color(0, 0, 0);
 	
 	private void oceni(){
-		vpisano = inputRezultat.getText();
-		boolean ok = false;
-		try{
-			int vpisanInt = Integer.parseInt(vpisano);
-			ok = vpisanInt == trenutni.rezultat;
-		}catch(NumberFormatException ex){
-			vpisano = "FAIL";
-		}
-		if(ok){
-			//Ocena.setBackground(bela);
-			Ocena.setText("OK");
-			Ocena.setForeground(zelena);
-			pravilno += 1;
-			Tocke.setText(pravilno + "/" + vsehRacunov);
-		}else{
-			//Ocena.setBackground(bela);
-			Ocena.setText("X");
-			Ocena.setForeground(rdeca);
-			Tocke.setText(pravilno + "/" + vsehRacunov);
+		if (nisemOcenil){
+			nisemOcenil = false;
+			vpisano = inputRezultat.getText();
+			boolean ok = false;
+			try{
+				int vpisanInt = Integer.parseInt(vpisano);
+				ok = vpisanInt == trenutni.rezultat;
+			}catch(NumberFormatException ex){
+				vpisano = "FAIL";
+			}
+			if(ok){
+				//Ocena.setBackground(bela);
+				Ocena.setText("OK");
+				Ocena.setForeground(zelena);
+				pravilno += 1;
+				Tocke.setText(pravilno + "/" + vsehRacunov);
+			}else{
+				//Ocena.setBackground(bela);
+				Ocena.setText("X");
+				Ocena.setForeground(rdeca);
+				Tocke.setText(pravilno + "/" + vsehRacunov);
+			}
 		}
 	}
 	
@@ -90,6 +95,7 @@ public class GlavnoOkno extends JFrame {
 	private void pokazi(){
 		trenutni = new Racun();
 		labelRacun.setText(trenutni.vStringu);
+		nisemOcenil = true;
 		vsehRacunov += 1;
 		if (vsehRacunov == steviloRacunov){
 			defcon = 1;
@@ -116,7 +122,7 @@ public class GlavnoOkno extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GlavnoOkno() {
+	public GlavnoOkno(int tezavnost, int stRacunov) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Vaje raèunanja - zahtevnost 10"); //se bo spreminjalo
 		setResizable(false);
@@ -127,6 +133,9 @@ public class GlavnoOkno extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(1, 1));
 		setContentPane(contentPane);
+		
+		zahtevnost = tezavnost;
+		steviloRacunov = stRacunov;
 		
 		btnResetiraj = new JButton("Resetiraj");
 		
