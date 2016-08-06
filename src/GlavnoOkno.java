@@ -27,7 +27,7 @@ public class GlavnoOkno extends JFrame {
 	private JPanel contentPane;
 	private JTextField inputRezultat;
 	
-	public Racun trenutni;
+	private Racun trenutni;
 	private String vpisano;
 	
 	private JButton btnResetiraj;
@@ -45,6 +45,11 @@ public class GlavnoOkno extends JFrame {
 	private JLabel Tocke;
 	private int vsehRacunov = 0;
 	private int pravilno = 0;
+	
+	private int zahtevnost;
+	private int steviloRacunov = 10;
+	
+	private int defcon = 0;
 	
 	private Color zelena = new Color(51, 204, 0);
 	private Color rdeca = new Color(255,17,17);
@@ -86,6 +91,9 @@ public class GlavnoOkno extends JFrame {
 		trenutni = new Racun();
 		labelRacun.setText(trenutni.vStringu);
 		vsehRacunov += 1;
+		if (vsehRacunov == steviloRacunov){
+			defcon = 1;
+		}
 		inputRezultat.setText("");
 	}
 
@@ -234,6 +242,7 @@ public class GlavnoOkno extends JFrame {
 		btnResetiraj.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				defcon = 0;
 				vsehRacunov = 0;
 				pravilno = 0;
 				Tocke.setText(pravilno + "/" + vsehRacunov);
@@ -250,7 +259,9 @@ public class GlavnoOkno extends JFrame {
 				oceni();
 				zgodovina();
 				System.out.println(trenutni);
-				pokazi();
+				if (defcon == 0){
+					pokazi();
+				}
 			}
 		});
 				
@@ -261,7 +272,9 @@ public class GlavnoOkno extends JFrame {
 					oceni();
 					zgodovina();
 					System.out.println(trenutni);
-					pokazi();
+					if (defcon == 0){
+						pokazi();
+					}
 				}
 			}
 		});
