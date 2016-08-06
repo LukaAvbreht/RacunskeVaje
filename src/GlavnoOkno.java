@@ -55,7 +55,7 @@ public class GlavnoOkno extends JFrame {
 	
 	private Color zelena = new Color(51, 204, 0);
 	private Color rdeca = new Color(255,17,17);
-	private Color rumena = new Color(255,255,0);
+	private Color rumena = new Color(255,255,150);
 	private Color bela = new Color(255, 255, 255);
 	private Color crna = new Color(0, 0, 0);
 	private Color svetloZelena = new Color(230,255,230);
@@ -180,6 +180,7 @@ public class GlavnoOkno extends JFrame {
 		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
 		Ocena.setHorizontalAlignment(SwingConstants.CENTER);
 		Ocena.setAlignmentX(Component.CENTER_ALIGNMENT);
+		//Ocena.setBorder(new EmptyBorder(5,5,5,5));
 		//Ocena.setMinimumSize(new Dimension(200, 100));
 		//Ocena.setMaximumSize(new Dimension(80, 50));
 		//Ocena.setSize(200, 100);
