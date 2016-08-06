@@ -33,14 +33,6 @@ public class ZacetnoOkno extends JFrame{
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			//public void run() {
-			//	try {
-			//		GlavnoOkno frame = new GlavnoOkno();
-			//		frame.setVisible(true);
-			//	} catch (Exception e) {
-			//		e.printStackTrace();
-			//	}
-			//}
 			public void run() {
 				try  {
 					ZacetnoOkno okno = new ZacetnoOkno();
@@ -65,6 +57,7 @@ public class ZacetnoOkno extends JFrame{
 		setContentPane(platno);
 		
 		btnZacni = new JButton("Start");
+		btnZacni.setToolTipText("Zaèni igro!");
 		
 		navodila_1 = new JLabel();
 		navodila_1.setText("Izberi težavnost: (1 - 20)");
@@ -73,7 +66,11 @@ public class ZacetnoOkno extends JFrame{
 		navodila_2.setText("Izberi število raèunov: ");
 		
 		vpisiTezavnost = new JTextField();
+		vpisiTezavnost.setSize(new Dimension(50,50));
+		vpisiTezavnost.setToolTipText("Vpiši težavnost med 1 in 20.");
+		
 		vpisiStRacunov = new JTextField();
+		vpisiStRacunov.setToolTipText("Izberi število raèunov, ki jih boš rešil!");
 		
 		platno.add(navodila_1);
 		platno.add(vpisiTezavnost);
@@ -86,11 +83,11 @@ public class ZacetnoOkno extends JFrame{
 			public void mouseClicked(MouseEvent arg0) {
 				String vpis_1 = vpisiTezavnost.getText();
 				try {
-					tezavnost = Integer.parseInt(vpis_1);
+					tezavnost = Math.abs(Integer.parseInt(vpis_1));
 				} catch (NumberFormatException e){}
 				String vpis_2 = vpisiStRacunov.getText();
 				try {
-					stRacunov = Integer.parseInt(vpis_2);
+					stRacunov = Math.abs(Integer.parseInt(vpis_2));
 				} catch (NumberFormatException e){}
 				vaje = new GlavnoOkno(tezavnost, stRacunov);
 				vaje.setVisible(true);

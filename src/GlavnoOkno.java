@@ -74,18 +74,21 @@ public class GlavnoOkno extends JFrame {
 				vpisano = "FAIL";
 			}
 			if(ok){
-				//Ocena.setBackground(bela);
 				Ocena.setText("OK");
 				Ocena.setForeground(zelena);
 				pravilno += 1;
 				Tocke.setText(pravilno + "/" + vsehRacunov);
 				inputRezultat.setBackground(svetloZelena);
 			}else{
-				//Ocena.setBackground(bela);
 				Ocena.setText("X");
 				Ocena.setForeground(rdeca);
 				Tocke.setText(pravilno + "/" + vsehRacunov);
 				inputRezultat.setBackground(svetloRdeca);
+			}
+			if (vsehRacunov == steviloRacunov){
+				defcon = 1;
+				inputRezultat.disable();
+				inputRezultat.setBackground(temnoSiva);
 			}
 		}
 	}
@@ -102,11 +105,6 @@ public class GlavnoOkno extends JFrame {
 		labelRacun.setText(trenutni.vStringu);
 		nisemOcenil = true;
 		vsehRacunov += 1;
-		if (vsehRacunov == steviloRacunov){
-			defcon = 1;
-			inputRezultat.disable();
-			inputRezultat.setBackground(temnoSiva);
-		}
 		inputRezultat.setText("");
 	}
 
