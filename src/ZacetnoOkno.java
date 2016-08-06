@@ -61,7 +61,7 @@ public class ZacetnoOkno extends JFrame{
 		setMinimumSize(dim);
 		platno = new JPanel();
 		platno.setBorder(new EmptyBorder(5, 5, 5, 5));
-		platno.setLayout(new BorderLayout(1, 1));
+		platno.setLayout(new BoxLayout(platno, BoxLayout.Y_AXIS));
 		setContentPane(platno);
 		
 		btnZacni = new JButton("Start");
@@ -71,10 +71,7 @@ public class ZacetnoOkno extends JFrame{
 		spodnjaVrstica.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 		spodnjaVrstica.add(btnZacni);
 		
-		platno.add(spodnjaVrstica, BorderLayout.SOUTH);
-		
-		JButton test = new JButton("TEST");
-		
+		platno.add(spodnjaVrstica, BorderLayout.PAGE_END);
 		
 		btnZacni.addMouseListener(new MouseAdapter() {
 			@Override

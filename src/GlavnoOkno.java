@@ -99,6 +99,8 @@ public class GlavnoOkno extends JFrame {
 		vsehRacunov += 1;
 		if (vsehRacunov == steviloRacunov){
 			defcon = 1;
+			inputRezultat.disable();
+			inputRezultat.setBackground(new Color(255,230,230));
 		}
 		inputRezultat.setText("");
 	}
@@ -245,12 +247,16 @@ public class GlavnoOkno extends JFrame {
 		inputRezultat = new JTextField();
 		inputRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
 		inputRezultat.setMaximumSize(new Dimension(150,50));
+		inputRezultat.setBackground(new Color(204,255,204));
 		panel.add(inputRezultat);
 		inputRezultat.setColumns(10);
 		
 		btnResetiraj.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				
+				inputRezultat.enable();
+				inputRezultat.setBackground(new Color(204,255,204));
 				defcon = 0;
 				vsehRacunov = 0;
 				pravilno = 0;
