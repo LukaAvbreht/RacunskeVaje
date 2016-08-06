@@ -48,9 +48,7 @@ public class ZacetnoOkno extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Vaje raèunanja!"); //se bo spreminjalo
 		setResizable(false);
-		setBounds(100, 100, 200, 200);
-		Dimension dim = new Dimension(200,250);
-		setMinimumSize(dim);
+		setBounds(100, 100, 250, 150);
 		platno = new JPanel();
 		platno.setBorder(new EmptyBorder(5, 5, 5, 5));
 		platno.setLayout(new BoxLayout(platno, BoxLayout.Y_AXIS));
@@ -83,7 +81,8 @@ public class ZacetnoOkno extends JFrame{
 			public void mouseClicked(MouseEvent arg0) {
 				String vpis_1 = vpisiTezavnost.getText();
 				try {
-					tezavnost = Math.abs(Integer.parseInt(vpis_1));
+					tezavnost = Math.min(Math.abs(Integer.parseInt(vpis_1)), 20);
+					tezavnost = Math.max(1, tezavnost);
 				} catch (NumberFormatException e){}
 				String vpis_2 = vpisiStRacunov.getText();
 				try {
