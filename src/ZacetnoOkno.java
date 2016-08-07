@@ -8,7 +8,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,6 +26,8 @@ public class ZacetnoOkno extends JFrame{
 	private JTextField vpisiTezavnost;
 	private JTextField vpisiStRacunov;
 	private JButton btnZacni;
+	
+	private JComboBox menuTezavnost;
 	
 	private JLabel navodila_1;
 	private JLabel navodila_2;
@@ -69,6 +73,10 @@ public class ZacetnoOkno extends JFrame{
 		navodila_2 = new JLabel();
 		navodila_2.setText("Izberi število raèunov: ");
 		
+		JComboBox menuTezavnost = new JComboBox();
+		for (int i = 1; i <= 20; i++){ menuTezavnost.addItem(i);}
+		menuTezavnost.setSelectedIndex(9);
+		
 		vpisiTezavnost = new JTextField();
 		vpisiTezavnost.setSize(new Dimension(50,50));
 		vpisiTezavnost.setToolTipText("Vpiši težavnost med 1 in 20.");
@@ -77,7 +85,7 @@ public class ZacetnoOkno extends JFrame{
 		vpisiStRacunov.setToolTipText("Izberi število raèunov, ki jih boš rešil!");
 		
 		platno.add(navodila_1);
-		platno.add(vpisiTezavnost);
+		platno.add(menuTezavnost);
 		platno.add(navodila_2);
 		platno.add(vpisiStRacunov);
 		platno.add(btnZacni);
@@ -85,11 +93,7 @@ public class ZacetnoOkno extends JFrame{
 		btnZacni.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				String vpis_1 = vpisiTezavnost.getText();
-				try {
-					tezavnost = Math.min(Math.abs(Integer.parseInt(vpis_1)), 20);
-					tezavnost = Math.max(1, tezavnost);
-				} catch (NumberFormatException e){}
+				tezavnost = (int) menuTezavnost.getSelectedItem();
 				String vpis_2 = vpisiStRacunov.getText();
 				try {
 					stRacunov = Math.abs(Integer.parseInt(vpis_2));

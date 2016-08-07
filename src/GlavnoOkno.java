@@ -101,7 +101,7 @@ public class GlavnoOkno extends JFrame {
 		sporocilo.setFont(new Font("Tahoma", Font.BOLD, 20));
 		sporocilo.setHorizontalTextPosition(SwingConstants.CENTER);
 		sporocilo.setHorizontalAlignment(SwingConstants.CENTER);
-		if (pravilno == steviloRacunov){
+		if (pravilno*Math.pow(steviloRacunov, -1) >= 0.9){
 			sporocilo.setText("Bravo! Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov!");
 		}
 		else {
@@ -138,7 +138,6 @@ public class GlavnoOkno extends JFrame {
 	 */
 	public GlavnoOkno(int tezavnost, int stRacunov) {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("Vaje raèunanja - Zahtevnost: " + zahtevnost + "  - Število raèunov: " + steviloRacunov);
 		setResizable(false);
 		setBounds(100, 100, 450, 250);
 		Dimension dim = new Dimension(600,250);
@@ -150,6 +149,7 @@ public class GlavnoOkno extends JFrame {
 		
 		zahtevnost = tezavnost;
 		steviloRacunov = stRacunov;
+		setTitle("Vaje raèunanja - Zahtevnost: " + zahtevnost + "  - Število raèunov: " + steviloRacunov);
 		
 		btnResetiraj = new JButton("Spremeni nastavitve");
 		btnResetiraj.setToolTipText("Klik bo zaprl trenutno okno!");
