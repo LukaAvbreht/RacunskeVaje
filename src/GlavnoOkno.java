@@ -138,7 +138,7 @@ public class GlavnoOkno extends JFrame {
 	 */
 	public GlavnoOkno(int tezavnost, int stRacunov) {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("Vaje raèunanja - zahtevnost 10"); //se bo spreminjalo
+		setTitle("Vaje raèunanja - Zahtevnost: " + zahtevnost + "  - Število raèunov: " + steviloRacunov);
 		setResizable(false);
 		setBounds(100, 100, 450, 250);
 		Dimension dim = new Dimension(600,250);
@@ -151,7 +151,8 @@ public class GlavnoOkno extends JFrame {
 		zahtevnost = tezavnost;
 		steviloRacunov = stRacunov;
 		
-		btnResetiraj = new JButton("Resetiraj");
+		btnResetiraj = new JButton("Spremeni nastavitve");
+		btnResetiraj.setToolTipText("Klik bo zaprl trenutno okno!");
 		
 		btnPotrdi = new JButton("Potrdi");
 		
@@ -232,16 +233,17 @@ public class GlavnoOkno extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				
-				inputRezultat.enable();
-				inputRezultat.setBackground(bela);
-				defcon = 0;
-				vsehRacunov = 0;
-				pravilno = 0;
-				Tocke.setText(pravilno + "/" + steviloRacunov);
-				labelPrejsniRacun.setText("Prejšni raèun");
-				Ocena.setText("??");
-				Ocena.setForeground(crna);
-				pokazi();
+				//inputRezultat.enable();
+				//inputRezultat.setBackground(bela);
+				//defcon = 0;
+				//vsehRacunov = 0;
+				//pravilno = 0;
+				//Tocke.setText(pravilno + "/" + steviloRacunov);
+				//labelPrejsniRacun.setText("Prejšni raèun");
+				//Ocena.setText("??");
+				//Ocena.setForeground(crna);
+				//pokazi();
+				ZacetnoOkno.zapri();
 			}
 		});
 
