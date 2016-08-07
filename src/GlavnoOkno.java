@@ -96,8 +96,30 @@ public class GlavnoOkno extends JFrame {
 	
 	private void koncnoSporocilo(){
 		JFrame koncnoOkno = new JFrame();
+		
 		koncnoOkno.setTitle("Rezultat!");
+		koncnoOkno.setAlwaysOnTop(true);
+		koncnoOkno.setBounds(300, 300, 500, 150);
+		
+		JLabel sporocilo = new JLabel();
+		sporocilo.setFont(new Font("Tahoma", Font.BOLD, 20));
+		sporocilo.setHorizontalTextPosition(SwingConstants.CENTER);
+		sporocilo.setHorizontalAlignment(SwingConstants.CENTER);
+		if (pravilno == steviloRacunov){
+			sporocilo.setText("Bravo! Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov!");
+		}
+		else {
+			sporocilo.setText("Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov!");
+		}
+		
+		koncnoOkno.add(sporocilo);
+		//koncnoOkno.setSize(koncnoOkno.getPreferredSize());
+		
+		//JButton vRedu = new JButton("OK");
+		//koncnoOkno.add(vRedu);
+		
 		koncnoOkno.setVisible(true);
+		
 	}
 	
 	private void zgodovina(){
