@@ -73,7 +73,7 @@ public class ZacetnoOkno extends JFrame{
 		navodila_2 = new JLabel();
 		navodila_2.setText("Izberi število raèunov: ");
 		
-		JComboBox menuTezavnost = new JComboBox();
+		menuTezavnost = new JComboBox();
 		for (int i = 1; i <= 20; i++){ menuTezavnost.addItem(i);}
 		menuTezavnost.setSelectedIndex(9);
 		
