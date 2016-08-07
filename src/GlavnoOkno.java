@@ -34,10 +34,6 @@ public class GlavnoOkno extends JFrame {
 	private JButton btnPotrdi;
 
 	private JLabel labelRacun;
-	//private JLabel labelOperacija;
-	//private JLabel labelDrugaStevilka;
-	//private JLabel labelEnakost;
-	//private JLabel labelRezultat;
 	private JLabel Ocena;
 	
 	private JLabel labelPrejsniRacun;
@@ -138,22 +134,6 @@ public class GlavnoOkno extends JFrame {
 	}
 
 	/**
-	 * Launch the application.
-	 */
-	//public static void main(String[] args) {
-	//	EventQueue.invokeLater(new Runnable() {
-	//		public void run() {
-	//			try {
-	//				GlavnoOkno frame = new GlavnoOkno();
-	//				frame.setVisible(true);
-	//			} catch (Exception e) {
-	//				e.printStackTrace();
-	//			}
-	//		}
-	//	});
-	//}
-
-	/**
 	 * Create the frame.
 	 */
 	public GlavnoOkno(int tezavnost, int stRacunov) {
@@ -240,43 +220,7 @@ public class GlavnoOkno extends JFrame {
 		//labelRacun.setMinimumSize(new Dimension(150, 100));
 		panel.add(labelRacun);
 		panel.add(Box.createHorizontalGlue());
-		
-		//labelOperacija = new JLabel("");
-		//labelOperacija.setOpaque(true);
-		//labelOperacija.setHorizontalTextPosition(SwingConstants.CENTER);
-		//labelOperacija.setHorizontalAlignment(SwingConstants.CENTER);
-		//labelOperacija.setMinimumSize(new Dimension(150, 100));
-		//labelOperacija.setMaximumSize(new Dimension(150, 50));
-		//labelOperacija.setFont(new Font("Tahoma", Font.BOLD, 30));
-		//panel.add(labelOperacija);
-		
-		//labelDrugaStevilka = new JLabel("");
-		//labelDrugaStevilka.setOpaque(true);
-		//labelDrugaStevilka.setHorizontalTextPosition(SwingConstants.CENTER);
-		//labelDrugaStevilka.setHorizontalAlignment(SwingConstants.CENTER);
-		//labelDrugaStevilka.setMinimumSize(new Dimension(150, 100));
-		//labelDrugaStevilka.setMaximumSize(new Dimension(150, 50));
-		//labelDrugaStevilka.setFont(new Font("Tahoma", Font.BOLD, 30));
-		//panel.add(labelDrugaStevilka);
-		
-		//labelEnakost = new JLabel("=");
-		//labelEnakost.setFont(new Font("Tempus Sans ITC", Font.BOLD, 30));
-		//labelEnakost.setOpaque(true);
-		//labelEnakost.setHorizontalTextPosition(SwingConstants.CENTER);
-		//labelEnakost.setHorizontalAlignment(SwingConstants.CENTER);
-		//labelEnakost.setMinimumSize(new Dimension(150, 100));
-		//labelEnakost.setMaximumSize(new Dimension(150, 50));
-		//panel.add(labelEnakost);
-		
-		//labelRezultat = new JLabel("");
-		//labelRezultat.setOpaque(true);
-		//labelRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
-		//labelRezultat.setHorizontalTextPosition(SwingConstants.CENTER);
-		//labelRezultat.setHorizontalAlignment(SwingConstants.CENTER);
-		//labelRezultat.setMinimumSize(new Dimension(150, 100));
-		//labelRezultat.setMaximumSize(new Dimension(150, 50));
-		//panel.add(labelRezultat);
-		
+
 		inputRezultat = new JTextField();
 		inputRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
 		inputRezultat.setMaximumSize(new Dimension(150,50));

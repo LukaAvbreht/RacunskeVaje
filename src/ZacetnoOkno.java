@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class ZacetnoOkno extends JFrame{
@@ -56,6 +57,7 @@ public class ZacetnoOkno extends JFrame{
 		
 		btnZacni = new JButton("Start");
 		btnZacni.setToolTipText("Zaèni igro!");
+		btnZacni.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		navodila_1 = new JLabel();
 		navodila_1.setText("Izberi težavnost: (1 - 20)");
