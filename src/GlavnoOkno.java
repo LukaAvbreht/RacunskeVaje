@@ -89,8 +89,15 @@ public class GlavnoOkno extends JFrame {
 				defcon = 1;
 				inputRezultat.disable();
 				inputRezultat.setBackground(temnoSiva);
+				koncnoSporocilo();
 			}
 		}
+	}
+	
+	private void koncnoSporocilo(){
+		JFrame koncnoOkno = new JFrame();
+		koncnoOkno.setTitle("Rezultat!");
+		koncnoOkno.setVisible(true);
 	}
 	
 	private void zgodovina(){
@@ -128,7 +135,7 @@ public class GlavnoOkno extends JFrame {
 	 * Create the frame.
 	 */
 	public GlavnoOkno(int tezavnost, int stRacunov) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Vaje raèunanja - zahtevnost 10"); //se bo spreminjalo
 		setResizable(false);
 		setBounds(100, 100, 450, 250);
