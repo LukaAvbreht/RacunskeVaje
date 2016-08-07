@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 public class ZacetnoOkno extends JFrame{
 	
-	private GlavnoOkno vaje;
+	private static GlavnoOkno vaje;
 	
 	private JPanel platno;
 	private JTextField vpisiTezavnost;
@@ -43,6 +43,10 @@ public class ZacetnoOkno extends JFrame{
 				}
 			}
 		});
+	}
+	
+	public static void zapri(){
+		vaje.setVisible(false);
 	}
 	
 	public ZacetnoOkno(){

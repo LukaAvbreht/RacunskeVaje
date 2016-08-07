@@ -115,7 +115,7 @@ public class GlavnoOkno extends JFrame {
 		//koncnoOkno.add(vRedu);
 		
 		koncnoOkno.setVisible(true);
-		
+		ZacetnoOkno.zapri();
 	}
 	
 	private void zgodovina(){
