@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
@@ -75,7 +76,7 @@ public class ZacetnoOkno extends JFrame{
 		
 		btnZacni = new JButton("Start");
 		btnZacni.setToolTipText("Zaèni igro!");
-		btnZacni.setHorizontalAlignment(SwingConstants.CENTER);
+		//btnZacni.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
 		navodila_1 = new JLabel();
 		navodila_1.setText("Izberi težavnost: (1 - 20)");
@@ -91,19 +92,20 @@ public class ZacetnoOkno extends JFrame{
 		vpisiStRacunov.setMaximumSize(new Dimension(300,200));
 		vpisiStRacunov.setToolTipText("Izberi število raèunov, ki jih boš rešil!");
 		
-	    plus = new JCheckBox("x + y = _");
+	    plus = new JCheckBox(" x + y = __");
+	    //plus.setAlignmentX(Component.CENTER_ALIGNMENT);
 	    plus.setSelected(true);
 	    
-	    minus = new JCheckBox("x - y = _");
+	    minus = new JCheckBox(" x - y = __");
 	    minus.setSelected(true);
 	    
-	    krat = new JCheckBox("x * y = _");
+	    krat = new JCheckBox(" x * y = __");
 	    krat.setSelected(true);
 	    
-	    deljeno = new JCheckBox("x / y = _");
+	    deljeno = new JCheckBox(" x / y = __");
 	    deljeno.setSelected(true);
 	    
-	    deljenec = new JCheckBox("_ / x = y ");
+	    deljenec = new JCheckBox(" __ / x = y ");
 	    deljenec.setSelected(true);
 	    
 	    tipiRacunov = new ArrayList<Integer>();
