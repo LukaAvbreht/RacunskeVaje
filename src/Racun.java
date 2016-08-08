@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Racun {
@@ -7,9 +9,10 @@ public class Racun {
 	final int rezultat;
 	String vStringu;
 	String zgodovina;
+	ArrayList<Integer> tipiRacunov;
 	
-	public Racun(int zah){
-		tip = randInt(1,5);
+	public Racun(int zah, ArrayList<Integer> tipiRacunov){
+		tip = nakljucniElement(tipiRacunov);
 		if (tip == 1){
 			prvaStevilka = randInt(0, 10*zah);
 			drugaStevilka = randInt(0, 10*zah);
@@ -56,6 +59,11 @@ public class Racun {
 	public String toString() {
 		return "Racun [prvaStevilka=" + prvaStevilka + ", drugaStevilka=" + drugaStevilka
 				+ ", rezultat=" + rezultat + "]";
+	}
+	
+	private static int nakljucniElement(ArrayList<Integer> tipi){
+		int rnd = randInt(0, tipi.size() - 1);
+		return tipi.get(rnd);
 	}
 	
 	

@@ -14,6 +14,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Font;
@@ -57,6 +58,8 @@ public class GlavnoOkno extends JFrame {
 	private Color svetloZelena = new Color(230,255,230);
 	private Color svetloRdeca = new Color(255,230,230);
 	private Color temnoSiva = new Color(128,128,128);
+	
+	ArrayList<Integer> tipiRacunov;
 	
 	private void oceni(){
 		if (nisemOcenil){
@@ -126,7 +129,7 @@ public class GlavnoOkno extends JFrame {
 
 	
 	private void pokazi(){
-		trenutni = new Racun(zahtevnost);
+		trenutni = new Racun(zahtevnost, tipiRacunov);
 		labelRacun.setText(trenutni.vStringu);
 		nisemOcenil = true;
 		vsehRacunov += 1;
@@ -136,10 +139,10 @@ public class GlavnoOkno extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GlavnoOkno(int tezavnost, int stRacunov) {
+	public GlavnoOkno(int tezavnost, int stRacunov, ArrayList<Integer> tipi) {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		setBounds(100, 100, 450, 250);
+		setBounds(200, 200, 450, 250);
 		Dimension dim = new Dimension(600,250);
 		setMinimumSize(dim);
 		contentPane = new JPanel();
@@ -149,6 +152,7 @@ public class GlavnoOkno extends JFrame {
 		
 		zahtevnost = tezavnost;
 		steviloRacunov = stRacunov;
+		tipiRacunov = tipi;
 		setTitle("Vaje raèunanja - Zahtevnost: " + zahtevnost + "  - Število raèunov: " + steviloRacunov);
 		
 		btnResetiraj = new JButton("Spremeni nastavitve");
