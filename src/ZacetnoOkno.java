@@ -67,7 +67,7 @@ public class ZacetnoOkno extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Vaje raèunanja!"); //se bo spreminjalo
 		setResizable(false);
-		setBounds(300, 300, 200, 350);
+		setBounds(300, 300, 200, 270);
 		platno = new JPanel();
 		platno.setBorder(new EmptyBorder(5, 5, 5, 5));
 		platno.setLayout(new BoxLayout(platno, BoxLayout.Y_AXIS));
@@ -88,6 +88,7 @@ public class ZacetnoOkno extends JFrame{
 		menuTezavnost.setSelectedIndex(9);
 		
 		vpisiStRacunov = new JTextField();
+		vpisiStRacunov.setMaximumSize(new Dimension(300,200));
 		vpisiStRacunov.setToolTipText("Izberi število raèunov, ki jih boš rešil!");
 		
 	    plus = new JCheckBox("x + y = _");
