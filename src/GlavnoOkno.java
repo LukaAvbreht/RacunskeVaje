@@ -83,12 +83,12 @@ public class GlavnoOkno extends JFrame {
 				Ocena.setText("OK");
 				Ocena.setForeground(zelena);
 				pravilno += 1;
-				Tocke.setText(pravilno + "/" + steviloRacunov);
+				Tocke.setText(pravilno + "/" + vsehRacunov + " (" + steviloRacunov + ") ");
 				inputRezultat.setBackground(svetloZelena);
 			}else{
 				Ocena.setText("X");
 				Ocena.setForeground(rdeca);
-				Tocke.setText(pravilno + "/" + steviloRacunov);
+				Tocke.setText(pravilno + "/" + vsehRacunov + " (" + steviloRacunov + ") ");
 				inputRezultat.setBackground(svetloRdeca);
 			}
 			if (vsehRacunov == steviloRacunov){
@@ -119,10 +119,6 @@ public class GlavnoOkno extends JFrame {
 		}
 		
 		koncnoOkno.add(sporocilo);
-		//koncnoOkno.setSize(koncnoOkno.getPreferredSize());
-		
-		//JButton vRedu = new JButton("OK");
-		//koncnoOkno.add(vRedu);
 		
 		koncnoOkno.setVisible(true);
 		ZacetnoOkno.zapri();
@@ -169,7 +165,7 @@ public class GlavnoOkno extends JFrame {
 		
 		btnPotrdi = new JButton("Potrdi");
 		
-		Tocke = new JLabel("0/" + steviloRacunov+"");
+		Tocke = new JLabel("0/" + vsehRacunov + " (" + steviloRacunov + ")");
 		Tocke.setBackground(rumena);
 		Tocke.setFont(new Font("Tahoma", Font.BOLD, 30));
 		Tocke.setOpaque(true);
@@ -203,16 +199,11 @@ public class GlavnoOkno extends JFrame {
 		labelPrejsniRacun.setOpaque(true);
 		
 		Ocena = new JLabel("??");
-		//Ocena.setBackground(bela);
 		Ocena.setFont(new Font("Tahoma", Font.BOLD, 30));
 		Ocena.setOpaque(true);
 		Ocena.setHorizontalTextPosition(SwingConstants.CENTER);
 		Ocena.setHorizontalAlignment(SwingConstants.CENTER);
 		Ocena.setAlignmentX(Component.CENTER_ALIGNMENT);
-		//Ocena.setBorder(new EmptyBorder(5,5,5,5));
-		//Ocena.setMinimumSize(new Dimension(200, 100));
-		//Ocena.setMaximumSize(new Dimension(80, 50));
-		//Ocena.setSize(200, 100);
 		
 		JPanel bivsi = new JPanel();
 		bivsi.setLayout(new BoxLayout(bivsi, BoxLayout.LINE_AXIS));
@@ -229,24 +220,24 @@ public class GlavnoOkno extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.LINE_AXIS));
+		panel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 		
 		labelRacun = new JLabel("");
 		labelRacun.setOpaque(true);
 		labelRacun.setHorizontalTextPosition(SwingConstants.CENTER);
 		labelRacun.setHorizontalAlignment(SwingConstants.CENTER);
-		//labelRacun.setMaximumSize(new Dimension(150, 50));
 		labelRacun.setAlignmentX(Component.CENTER_ALIGNMENT);
 		labelRacun.setFont(new Font("Tahoma", Font.BOLD, 30));
-		//labelRacun.setMinimumSize(new Dimension(150, 100));
-		panel.add(labelRacun);
-		panel.add(Box.createHorizontalGlue());
 
 		inputRezultat = new JTextField();
 		inputRezultat.setFont(new Font("Tahoma", Font.BOLD, 30));
 		inputRezultat.setMaximumSize(new Dimension(150,50));
 		inputRezultat.setBackground(bela);
+		inputRezultat.setColumns(8);
+		
+		panel.add(labelRacun);
+		panel.add(Box.createHorizontalGlue());
 		panel.add(inputRezultat);
-		inputRezultat.setColumns(10);
 		
 		btnResetiraj.addMouseListener(new MouseAdapter() {   // ta bi mogu odpret ponovno osnovno okno
 			@Override

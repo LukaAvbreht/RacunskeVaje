@@ -70,7 +70,7 @@ public class ZacetnoOkno extends JFrame{
 	
 	public ZacetnoOkno(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("Vaje raèunanja!"); //se bo spreminjalo
+		setTitle("Vaje raèunanja!");
 		setResizable(false);
 		setBounds(400, 450, 300, 270);
 		platno = new JPanel();
@@ -80,25 +80,22 @@ public class ZacetnoOkno extends JFrame{
 		
 		btnZacni = new JButton("Start");
 		btnZacni.setToolTipText("Zaèni igro!");
-		//btnZacni.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
 		btnZapri = new JButton("Zapri");
 		btnZapri.setToolTipText("To bo zaprlo aplikacijo!");
-		//btnZapri.addActionListener(new CloseListener());
 		
 		navodila_1 = new JLabel();
 		navodila_1.setText("Izberi težavnost: (1 - 20)");
 		
 		navodila_2 = new JLabel();
-		navodila_2.setText("Izberi število raèunov: ");
+		navodila_2.setText("Izberi število raèunov:");
 		
 		menuTezavnost = new JComboBox();
 		for (int i = 1; i <= 20; i++){ menuTezavnost.addItem(i);}
 		menuTezavnost.setSelectedIndex(9);
 		
 		vpisiStRacunov = new JTextField();
-		//vpisiStRacunov.setMaximumSize(new Dimension(300,200));
-		vpisiStRacunov.setToolTipText("Izberi število raèunov, ki jih boš rešil!");
+		vpisiStRacunov.setToolTipText("Prvotno nastavljeno na 10 raèunov.");
 		
 		vrsticaGumbov = new JPanel();
 		vrsticaGumbov.setLayout(new BoxLayout(vrsticaGumbov, BoxLayout.X_AXIS));
@@ -107,7 +104,6 @@ public class ZacetnoOkno extends JFrame{
 		vrsticaGumbov.add(btnZacni);
 		
 	    plus = new JCheckBox(" x + y = __");
-	    //plus.setAlignmentX(Component.CENTER_ALIGNMENT);
 	    plus.setSelected(true);
 	    
 	    minus = new JCheckBox(" x - y = __");
