@@ -39,6 +39,9 @@ public class GlavnoOkno extends JFrame {
 	
 	private JLabel labelPrejsniRacun;
 	
+	private JLabel labelCas;
+	private long zacetniCas;
+	
 	private JLabel Tocke;
 	private int vsehRacunov = 0;
 	private int pravilno = 0;
@@ -134,6 +137,9 @@ public class GlavnoOkno extends JFrame {
 		nisemOcenil = true;
 		vsehRacunov += 1;
 		inputRezultat.setText("");
+		
+		long cas = (long) (0.001*(System.currentTimeMillis() - zacetniCas));
+		labelCas.setText(String.valueOf(cas) + " s");
 	}
 
 	/**
@@ -153,6 +159,7 @@ public class GlavnoOkno extends JFrame {
 		zahtevnost = tezavnost;
 		steviloRacunov = stRacunov;
 		tipiRacunov = tipi;
+		zacetniCas = System.currentTimeMillis();
 		setTitle("Vaje raèunanja - Zahtevnost: " + zahtevnost + "  - Število raèunov: " + steviloRacunov);
 		
 		btnResetiraj = new JButton("Spremeni nastavitve");
@@ -169,10 +176,16 @@ public class GlavnoOkno extends JFrame {
 		Tocke.setMinimumSize(new Dimension(150, 100));
 		Tocke.setMaximumSize(new Dimension(150, 50));
 		
+		labelCas = new JLabel();
+		labelCas.setFont(new Font("Tahoma", Font.BOLD, 30));
+		labelCas.setText("0 s");
+		
 		JPanel gumbi = new JPanel();
 		gumbi.setLayout(new BoxLayout(gumbi, BoxLayout.LINE_AXIS));
 		gumbi.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 		gumbi.add(Tocke);
+		gumbi.add(Box.createHorizontalGlue());
+		gumbi.add(labelCas);
 		gumbi.add(Box.createHorizontalGlue());
 		gumbi.add(btnResetiraj);
 		gumbi.add(Box.createRigidArea(new Dimension(10, 0)));
