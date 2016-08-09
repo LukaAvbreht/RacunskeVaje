@@ -9,6 +9,7 @@ import java.util.Vector;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
@@ -26,8 +27,10 @@ public class ZacetnoOkno extends JFrame{
 	private static GlavnoOkno vaje;
 	
 	private JPanel platno;
+	private JPanel vrsticaGumbov;
 	private static JTextField vpisiStRacunov;
 	private JButton btnZacni;
+	private JButton btnZapri;
 	
 	private JComboBox menuTezavnost;
 	
@@ -68,7 +71,7 @@ public class ZacetnoOkno extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Vaje raèunanja!"); //se bo spreminjalo
 		setResizable(false);
-		setBounds(300, 300, 200, 270);
+		setBounds(300, 300, 300, 270);
 		platno = new JPanel();
 		platno.setBorder(new EmptyBorder(5, 5, 5, 5));
 		platno.setLayout(new BoxLayout(platno, BoxLayout.Y_AXIS));
@@ -77,6 +80,9 @@ public class ZacetnoOkno extends JFrame{
 		btnZacni = new JButton("Start");
 		btnZacni.setToolTipText("Zaèni igro!");
 		//btnZacni.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		btnZapri = new JButton("Zapri");
+		btnZapri.setToolTipText("To bo zaprlo aplikacijo!");
 		
 		navodila_1 = new JLabel();
 		navodila_1.setText("Izberi težavnost: (1 - 20)");
@@ -89,8 +95,14 @@ public class ZacetnoOkno extends JFrame{
 		menuTezavnost.setSelectedIndex(9);
 		
 		vpisiStRacunov = new JTextField();
-		vpisiStRacunov.setMaximumSize(new Dimension(300,200));
+		//vpisiStRacunov.setMaximumSize(new Dimension(300,200));
 		vpisiStRacunov.setToolTipText("Izberi število raèunov, ki jih boš rešil!");
+		
+		vrsticaGumbov = new JPanel();
+		vrsticaGumbov.setLayout(new BoxLayout(vrsticaGumbov, BoxLayout.X_AXIS));
+		vrsticaGumbov.add(btnZapri);
+		vrsticaGumbov.add(Box.createHorizontalGlue());
+		vrsticaGumbov.add(btnZacni);
 		
 	    plus = new JCheckBox(" x + y = __");
 	    //plus.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -119,7 +131,7 @@ public class ZacetnoOkno extends JFrame{
 		platno.add(krat);
 		platno.add(deljeno);
 		platno.add(deljenec);
-		platno.add(btnZacni);
+		platno.add(vrsticaGumbov);
 		
 		btnZacni.addMouseListener(new MouseAdapter() {
 			@Override
@@ -139,6 +151,14 @@ public class ZacetnoOkno extends JFrame{
 				vaje.setVisible(true);
 			}
 		});
+		
+		btnZapri.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+			}
+		});
+		
 	}
 }
 	
