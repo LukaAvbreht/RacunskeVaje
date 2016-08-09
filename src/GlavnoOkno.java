@@ -147,7 +147,7 @@ public class GlavnoOkno extends JFrame {
 	 * Create the frame.
 	 */
 	public GlavnoOkno(int tezavnost, int stRacunov, ArrayList<Integer> tipi) {
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setBounds(200, 200, 450, 250);
 		Dimension dim = new Dimension(600,250);
