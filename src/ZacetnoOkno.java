@@ -65,13 +65,14 @@ public class ZacetnoOkno extends JFrame{
 	public static void zapri(){
 		vaje.setVisible(false);
 		vpisiStRacunov.setText("");
+		main(null);
 	}
 	
 	public ZacetnoOkno(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Vaje raèunanja!"); //se bo spreminjalo
 		setResizable(false);
-		setBounds(300, 300, 300, 270);
+		setBounds(400, 450, 300, 270);
 		platno = new JPanel();
 		platno.setBorder(new EmptyBorder(5, 5, 5, 5));
 		platno.setLayout(new BoxLayout(platno, BoxLayout.Y_AXIS));
@@ -150,6 +151,7 @@ public class ZacetnoOkno extends JFrame{
 				} catch (NumberFormatException e){}
 				vaje = new GlavnoOkno(tezavnost, stRacunov, tipiRacunov);
 				vaje.setVisible(true);
+				setVisible(false); // Skrije zacetnoOkno
 			}
 		});
 		
