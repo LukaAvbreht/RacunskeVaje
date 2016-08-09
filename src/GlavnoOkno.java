@@ -284,12 +284,13 @@ public class GlavnoOkno extends JFrame {
 		// Stvari namenjene stopanju casa
 		ActionListener osveziCas = new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				long cas = (long) (0.001*(System.currentTimeMillis() - zacetniCas));
-				labelCas.setText(String.valueOf(cas) + " s");
+				double cas = (double) (0.001*(System.currentTimeMillis() - zacetniCas));
+				String casString = String.format("%.2f", cas);
+				labelCas.setText(casString + " s");
 			}
 		};
 		
-		merilec = new Timer(100, osveziCas);
+		merilec = new Timer(10, osveziCas);
 		merilec.start();
 		
 		//Zacetni racun
