@@ -28,8 +28,8 @@ public class Racun {
 			zgodovina = vStringu + rezultat;
 		}
 		else if (tip == 3){
-			prvaStevilka = randInt(3, 2*zah);
-			drugaStevilka = randInt(3, 2*zah);
+			prvaStevilka = randInt(3, 3 + 2*zah);
+			drugaStevilka = randInt(3, 3 + 2*zah);
 			vStringu = prvaStevilka + " * " + drugaStevilka + " = ";
 			rezultat = prvaStevilka * drugaStevilka;
 			zgodovina = vStringu + rezultat;
