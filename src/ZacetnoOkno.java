@@ -83,6 +83,7 @@ public class ZacetnoOkno extends JFrame{
 		
 		btnZapri = new JButton("Zapri");
 		btnZapri.setToolTipText("To bo zaprlo aplikacijo!");
+		//btnZapri.addActionListener(new CloseListener());
 		
 		navodila_1 = new JLabel();
 		navodila_1.setText("Izberi težavnost: (1 - 20)");
@@ -156,6 +157,7 @@ public class ZacetnoOkno extends JFrame{
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				dispose();
+				System.exit(0);
 			}
 		});
 		
