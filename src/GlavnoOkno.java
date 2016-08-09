@@ -115,7 +115,9 @@ public class GlavnoOkno extends JFrame {
 			sporocilo.setText("Bravo! Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov!");
 		}
 		else {
-			sporocilo.setText("Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov!");
+			double cas = (double) (0.001*(System.currentTimeMillis() - zacetniCas));
+			String casString = String.format("%.2f", cas);
+			sporocilo.setText("Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov v " + casString + "sec !");
 		}
 		
 		koncnoOkno.add(sporocilo);
