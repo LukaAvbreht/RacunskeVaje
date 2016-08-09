@@ -4,9 +4,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Racun {
 	int tip;
-	final int prvaStevilka;
-	final int drugaStevilka;
-	final int rezultat;
+	int prvaStevilka;
+	int drugaStevilka;
+	int tretjaStevilka;
+	int rezultat;
 	String vStringu;
 	String zgodovina;
 	ArrayList<Integer> tipiRacunov;
@@ -41,13 +42,21 @@ public class Racun {
 			rezultat = drugaStevilka;
 			zgodovina = vStringu + rezultat;
 		}
-		else {
+		else if (tip == 5){
 			drugaStevilka = randInt(0,2*zah);
 			prvaStevilka = randInt(1,2*zah);
 			vStringu = "__ / " + prvaStevilka + " = " + drugaStevilka + " ";
 			rezultat = prvaStevilka*drugaStevilka;
 			zgodovina = rezultat + " / " + prvaStevilka + " = " + drugaStevilka + " ";
 		}
+		else{
+			prvaStevilka = randInt(3,3 + 2*zah);
+			drugaStevilka = randInt(0,zah);
+			tretjaStevilka = randInt(0,zah);
+			rezultat = prvaStevilka*(drugaStevilka + tretjaStevilka);
+			vStringu = prvaStevilka + " * (" + drugaStevilka + " + " + tretjaStevilka + " ) = ";
+			zgodovina = vStringu + rezultat;
+			}
 	}
 
 	@Override

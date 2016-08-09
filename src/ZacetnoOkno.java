@@ -39,6 +39,7 @@ public class ZacetnoOkno extends JFrame{
 	private JCheckBox krat;
 	private JCheckBox deljeno;
 	private JCheckBox deljenec;
+	private JCheckBox prednost;
 	
 	private JLabel navodila_1;
 	private JLabel navodila_2;
@@ -72,7 +73,7 @@ public class ZacetnoOkno extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Vaje raèunanja!");
 		setResizable(false);
-		setBounds(400, 450, 300, 270);
+		setBounds(400, 450, 300, 290);
 		platno = new JPanel();
 		platno.setBorder(new EmptyBorder(5, 5, 5, 5));
 		platno.setLayout(new BoxLayout(platno, BoxLayout.Y_AXIS));
@@ -118,6 +119,9 @@ public class ZacetnoOkno extends JFrame{
 	    deljenec = new JCheckBox(" __ / x = y ");
 	    deljenec.setSelected(true);
 	    
+	    prednost = new JCheckBox(" x * ( y + z ) = __ ");
+	    prednost.setSelected(true);
+	    
 	    tipiRacunov = new ArrayList<Integer>();
 		
 		platno.add(navodila_1);
@@ -129,6 +133,7 @@ public class ZacetnoOkno extends JFrame{
 		platno.add(krat);
 		platno.add(deljeno);
 		platno.add(deljenec);
+		platno.add(prednost);
 		platno.add(vrsticaGumbov);
 		
 		btnZacni.addMouseListener(new MouseAdapter() {
@@ -139,6 +144,7 @@ public class ZacetnoOkno extends JFrame{
 				if (krat.isSelected()){tipiRacunov.add(3);}
 				if (deljeno.isSelected()){tipiRacunov.add(4);}
 				if (deljenec.isSelected()){tipiRacunov.add(5);}
+				if (prednost.isSelected()){tipiRacunov.add(6);}
 				
 				tezavnost = (int) menuTezavnost.getSelectedItem();
 				String vpis_2 = vpisiStRacunov.getText();
