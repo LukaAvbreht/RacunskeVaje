@@ -105,19 +105,21 @@ public class GlavnoOkno extends JFrame {
 		
 		koncnoOkno.setTitle("Rezultat!");
 		koncnoOkno.setAlwaysOnTop(true);
-		koncnoOkno.setBounds(300, 300, 500, 150);
+		koncnoOkno.setBounds(300, 300, 600, 150);
 		
 		JLabel sporocilo = new JLabel();
 		sporocilo.setFont(new Font("Tahoma", Font.BOLD, 20));
 		sporocilo.setHorizontalTextPosition(SwingConstants.CENTER);
 		sporocilo.setHorizontalAlignment(SwingConstants.CENTER);
 		if (pravilno*Math.pow(steviloRacunov, -1) >= 0.9){
-			sporocilo.setText("Bravo! Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov!");
+			double cas = (double) (0.001*(System.currentTimeMillis() - zacetniCas));
+			String casString = String.format("%.2f", cas);
+			sporocilo.setText("Bravo! Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov v " + casString + " sec!");
 		}
 		else {
 			double cas = (double) (0.001*(System.currentTimeMillis() - zacetniCas));
 			String casString = String.format("%.2f", cas);
-			sporocilo.setText("Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov v " + casString + "sec !");
+			sporocilo.setText("Pravilno si rešil " + pravilno + " od " + steviloRacunov + " raèunov v " + casString + " sec!");
 		}
 		
 		koncnoOkno.add(sporocilo);
