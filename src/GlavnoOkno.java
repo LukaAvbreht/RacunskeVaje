@@ -15,12 +15,15 @@ import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Font;
 import java.awt.Component;
 import java.awt.Point;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.border.MatteBorder;
 
 public class GlavnoOkno extends JFrame {
@@ -41,6 +44,7 @@ public class GlavnoOkno extends JFrame {
 	
 	private JLabel labelCas;
 	private long zacetniCas;
+	private Timer merilec;
 	
 	private JLabel Tocke;
 	private int vsehRacunov = 0;
@@ -137,9 +141,6 @@ public class GlavnoOkno extends JFrame {
 		nisemOcenil = true;
 		vsehRacunov += 1;
 		inputRezultat.setText("");
-		
-		long cas = (long) (0.001*(System.currentTimeMillis() - zacetniCas));
-		labelCas.setText(String.valueOf(cas) + " s");
 	}
 
 	/**
@@ -160,6 +161,7 @@ public class GlavnoOkno extends JFrame {
 		steviloRacunov = stRacunov;
 		tipiRacunov = tipi;
 		zacetniCas = System.currentTimeMillis();
+        
 		setTitle("Vaje raèunanja - Zahtevnost: " + zahtevnost + "  - Število raèunov: " + steviloRacunov);
 		
 		btnResetiraj = new JButton("Spremeni nastavitve");
@@ -278,7 +280,19 @@ public class GlavnoOkno extends JFrame {
 				}
 			}
 		});
-
+		
+		// Stvari namenjene stopanju casa
+		ActionListener osveziCas = new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				long cas = (long) (0.001*(System.currentTimeMillis() - zacetniCas));
+				labelCas.setText(String.valueOf(cas) + " s");
+			}
+		};
+		
+		merilec = new Timer(100, osveziCas);
+		merilec.start();
+		
+		//Zacetni racun
 		pokazi();
 	}
 }
