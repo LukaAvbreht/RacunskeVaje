@@ -14,8 +14,8 @@ public class Racun {
 	public Racun(int zah, ArrayList<Integer> tipiRacunov){
 		tip = nakljucniElement(tipiRacunov);
 		if (tip == 1){
-			prvaStevilka = randInt(0, 10*zah);
-			drugaStevilka = randInt(0, 10*zah);
+			prvaStevilka = randInt(10, 10 + 10*zah);
+			drugaStevilka = randInt(10, 10 + 10*zah);
 			vStringu = prvaStevilka + " + " + drugaStevilka + " = ";
 			rezultat = prvaStevilka + drugaStevilka;
 			zgodovina = vStringu + rezultat;
@@ -28,15 +28,15 @@ public class Racun {
 			zgodovina = vStringu + rezultat;
 		}
 		else if (tip == 3){
-			prvaStevilka = randInt(0, 2*zah);
-			drugaStevilka = randInt(0, 2*zah);
+			prvaStevilka = randInt(3, 2*zah);
+			drugaStevilka = randInt(3, 2*zah);
 			vStringu = prvaStevilka + " * " + drugaStevilka + " = ";
 			rezultat = prvaStevilka * drugaStevilka;
 			zgodovina = vStringu + rezultat;
 		}
 		else if (tip == 4){
-			prvaStevilka = randInt(1, 2*zah);
-			drugaStevilka = randInt(0,2*zah);
+			prvaStevilka = randInt(10, 10 + 2*zah);
+			drugaStevilka = randInt(1,2*zah);
 			vStringu = prvaStevilka*drugaStevilka + " / " + prvaStevilka + " = ";
 			rezultat = drugaStevilka;
 			zgodovina = vStringu + rezultat;
@@ -48,11 +48,6 @@ public class Racun {
 			rezultat = prvaStevilka*drugaStevilka;
 			zgodovina = rezultat + " / " + prvaStevilka + " = " + drugaStevilka + " ";
 		}
-		//this.prvaStevilka = prvaStevilka;
-		//this.drugaStevilka = drugaStevilka;
-		//this.operacija = operacija;
-		//this.rezultat = rezultat;
-		//this.vStringu = vStringu;
 	}
 
 	@Override
