@@ -201,8 +201,8 @@ public class GlavnoOkno extends JFrame {
 		
 		JPanel bivsi = new JPanel();
 		bivsi.setLayout(new BoxLayout(bivsi, BoxLayout.LINE_AXIS));
-		bivsi.setBorder(BorderFactory.createEmptyBorder(0, 180, 10, 10));
-		//bivsi.add(Box.createHorizontalGlue());
+		bivsi.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
+		bivsi.add(Box.createHorizontalGlue());
 		bivsi.add(labelPrejsniRacun);
 		bivsi.add(Box.createRigidArea(new Dimension(60, 0)));
 		bivsi.add(Ocena);
@@ -236,17 +236,6 @@ public class GlavnoOkno extends JFrame {
 		btnResetiraj.addMouseListener(new MouseAdapter() {   // ta bi mogu odpret ponovno osnovno okno
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
-				//inputRezultat.enable();
-				//inputRezultat.setBackground(bela);
-				//defcon = 0;
-				//vsehRacunov = 0;
-				//pravilno = 0;
-				//Tocke.setText(pravilno + "/" + steviloRacunov);
-				//labelPrejsniRacun.setText("Prejšni raèun");
-				//Ocena.setText("??");
-				//Ocena.setForeground(crna);
-				//pokazi();
 				ZacetnoOkno.zapri();
 			}
 		});
