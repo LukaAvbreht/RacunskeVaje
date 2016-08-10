@@ -1,17 +1,10 @@
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Vector;
-import java.util.concurrent.ThreadLocalRandom;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -19,9 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+@SuppressWarnings("serial")
 public class ZacetnoOkno extends JFrame{
 	
 	private static GlavnoOkno vaje;
@@ -32,6 +25,7 @@ public class ZacetnoOkno extends JFrame{
 	private JButton btnZacni;
 	private JButton btnZapri;
 	
+	@SuppressWarnings("rawtypes")
 	private JComboBox menuTezavnost;
 	
 	private JCheckBox plus;
@@ -69,6 +63,7 @@ public class ZacetnoOkno extends JFrame{
 		main(null);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ZacetnoOkno(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Vaje raèunanja!");

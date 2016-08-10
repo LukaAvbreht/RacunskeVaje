@@ -1,8 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -21,11 +19,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Font;
 import java.awt.Component;
-import java.awt.Point;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
-import javax.swing.border.MatteBorder;
 
+@SuppressWarnings("serial")
 public class GlavnoOkno extends JFrame {
 
 	private JPanel contentPane;
@@ -61,13 +58,13 @@ public class GlavnoOkno extends JFrame {
 	private Color rdeca = new Color(255,17,17);
 	private Color rumena = new Color(255,255,150);
 	private Color bela = new Color(255, 255, 255);
-	private Color crna = new Color(0, 0, 0);
 	private Color svetloZelena = new Color(230,255,230);
 	private Color svetloRdeca = new Color(255,230,230);
 	private Color temnoSiva = new Color(128,128,128);
 	
 	ArrayList<Integer> tipiRacunov;
 	
+	@SuppressWarnings("deprecation")
 	private void oceni(){
 		if (nisemOcenil){
 			nisemOcenil = false;
