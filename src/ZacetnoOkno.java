@@ -145,6 +145,7 @@ public class ZacetnoOkno extends JFrame{
 				if (deljeno.isSelected()){tipiRacunov.add(4);}
 				if (deljenec.isSelected()){tipiRacunov.add(5);}
 				if (prednost.isSelected()){tipiRacunov.add(6);}
+				if (tipiRacunov.size() == 0){tipiRacunov.add(1);}
 				
 				tezavnost = (int) menuTezavnost.getSelectedItem();
 				String vpis_2 = vpisiStRacunov.getText();
