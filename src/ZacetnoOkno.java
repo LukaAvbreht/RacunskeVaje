@@ -21,13 +21,11 @@ public class ZacetnoOkno extends JFrame{
 	
 	private JPanel platno;
 	private JPanel vrsticaGumbov;
-//	private static JTextField vpisiStRacunov;
-	private static JComboBox vpisiStRacunov;
 	private JButton btnZacni;
 	private JButton btnZapri;
 	
-	@SuppressWarnings("rawtypes")
-	private JComboBox menuTezavnost;
+	private JComboBox<Integer> menuTezavnost;
+	private static JComboBox<Integer> vpisiStRacunov;
 	
 	private JCheckBox plus;
 	private JCheckBox minus;
@@ -60,7 +58,6 @@ public class ZacetnoOkno extends JFrame{
 	
 	public static void zapri(){
 		vaje.setVisible(false);
-//		vpisiStRacunov.setText("");
 		vpisiStRacunov.setSelectedIndex(9);
 		main(null);
 	}
@@ -91,9 +88,6 @@ public class ZacetnoOkno extends JFrame{
 		menuTezavnost = new JComboBox();
 		for (int i = 1; i <= 20; i++){ menuTezavnost.addItem(i);}
 		menuTezavnost.setSelectedIndex(9);
-		
-//		vpisiStRacunov = new JTextField();
-//		vpisiStRacunov.setToolTipText("Prvotno nastavljeno na 10 raèunov.");
 		
 		vpisiStRacunov = new JComboBox();
 		for (int i = 1; i <= 100; i++){ vpisiStRacunov.addItem(i);}
@@ -149,10 +143,6 @@ public class ZacetnoOkno extends JFrame{
 				if (tipiRacunov.size() == 0){tipiRacunov.add(1);}
 				
 				tezavnost = (int) menuTezavnost.getSelectedItem();
-//				String vpis_2 = vpisiStRacunov.getText();
-//				try {
-//					stRacunov = Math.abs(Integer.parseInt(vpis_2));
-//				} catch (NumberFormatException e){}
 				stRacunov = (int) vpisiStRacunov.getSelectedItem();
 				vaje = new GlavnoOkno(tezavnost, stRacunov, tipiRacunov);
 				vaje.setVisible(true);

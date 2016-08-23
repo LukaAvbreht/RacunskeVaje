@@ -31,6 +31,8 @@ public class GlavnoOkno extends JFrame {
 	private Racun trenutni;
 	private String vpisano;
 	
+	public JFrame koncnoOkno;
+	
 	private JButton btnResetiraj;
 	private JButton btnPotrdi;
 
@@ -47,12 +49,8 @@ public class GlavnoOkno extends JFrame {
 	private int vsehRacunov = 0;
 	private int pravilno = 0;
 	
-	private boolean nisemOcenil = true;
-	
 	private int zahtevnost = 10;
 	private int steviloRacunov = 10;
-	
-	private int defcon = 0;
 	
 	private Color zelena = new Color(51, 204, 0);
 	private Color rdeca = new Color(255,17,17);
@@ -60,54 +58,46 @@ public class GlavnoOkno extends JFrame {
 	private Color bela = new Color(255, 255, 255);
 	private Color svetloZelena = new Color(230,255,230);
 	private Color svetloRdeca = new Color(255,230,230);
-	private Color temnoSiva = new Color(128,128,128);
 	
 	ArrayList<Integer> tipiRacunov;
 	
-	@SuppressWarnings("deprecation")
 	private void oceni(){
-		if (nisemOcenil){
-			nisemOcenil = false;
-			vpisano = inputRezultat.getText();
-			boolean ok = false;
-			try{
-				int vpisanInt = Integer.parseInt(vpisano);
-				ok = vpisanInt == trenutni.rezultat;
-			}catch(NumberFormatException ex){
-				vpisano = "FAIL";
-			}
-			if(ok){
-				Ocena.setText("OK");
-				Ocena.setForeground(zelena);
-				pravilno += 1;
-				Tocke.setText(pravilno + "/" + vsehRacunov + " (" + steviloRacunov + ") ");
-				inputRezultat.setBackground(svetloZelena);
-			}else{
-				Ocena.setText("X");
-				Ocena.setForeground(rdeca);
-				Tocke.setText(pravilno + "/" + vsehRacunov + " (" + steviloRacunov + ") ");
-				inputRezultat.setBackground(svetloRdeca);
-			}
-			if (vsehRacunov == steviloRacunov){
-				defcon = 1;
-				inputRezultat.disable();
-				inputRezultat.setBackground(temnoSiva);
-				koncnoSporocilo();
-			}
+		vpisano = inputRezultat.getText();
+		boolean ok = false;
+		try{
+			int vpisanInt = Integer.parseInt(vpisano);
+			ok = vpisanInt == trenutni.rezultat;
+		}catch(NumberFormatException ex){
+			vpisano = "FAIL";
+		}
+		if(ok){
+			Ocena.setText("OK");
+			Ocena.setForeground(zelena);
+			pravilno += 1;
+			Tocke.setText(pravilno + "/" + vsehRacunov + " (" + steviloRacunov + ") ");
+			inputRezultat.setBackground(svetloZelena);
+		}else{
+			Ocena.setText("X");
+			Ocena.setForeground(rdeca);
+			Tocke.setText(pravilno + "/" + vsehRacunov + " (" + steviloRacunov + ") ");
+			inputRezultat.setBackground(svetloRdeca);
+		}
+		if (vsehRacunov == steviloRacunov){
+			koncnoSporocilo();
 		}
 	}
 	
 	private void koncnoSporocilo(){
-		JFrame koncnoOkno = new JFrame();
+		koncnoOkno = new JFrame();
 		
 		koncnoOkno.setTitle("Rezultat!");
-		koncnoOkno.setAlwaysOnTop(true);
 		koncnoOkno.setBounds(300, 300, 600, 150);
 		
 		JLabel sporocilo = new JLabel();
 		sporocilo.setFont(new Font("Tahoma", Font.BOLD, 20));
 		sporocilo.setHorizontalTextPosition(SwingConstants.CENTER);
 		sporocilo.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		if (pravilno*Math.pow(steviloRacunov, -1) >= 0.9){
 			double cas = (double) (0.001*(System.currentTimeMillis() - zacetniCas));
 			String casString = String.format("%.2f", cas);
@@ -135,7 +125,6 @@ public class GlavnoOkno extends JFrame {
 	private void pokazi(){
 		trenutni = new Racun(zahtevnost, tipiRacunov);
 		labelRacun.setText(trenutni.vStringu);
-		nisemOcenil = true;
 		vsehRacunov += 1;
 		inputRezultat.setText("");
 	}
@@ -252,10 +241,7 @@ public class GlavnoOkno extends JFrame {
 			public void mouseClicked(MouseEvent arg0){
 				oceni();
 				zgodovina();
-				System.out.println(trenutni);
-				if (defcon == 0){
-					pokazi();
-				}
+				pokazi();
 			}
 		});
 				
@@ -265,10 +251,7 @@ public class GlavnoOkno extends JFrame {
 				if(arg0.getKeyCode() == KeyEvent.VK_ENTER){
 					oceni();
 					zgodovina();
-					System.out.println(trenutni);
-					if (defcon == 0){
-						pokazi();
-					}
+					pokazi();
 				}
 			}
 		});
